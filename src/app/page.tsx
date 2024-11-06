@@ -64,13 +64,12 @@ export default function Home() {
   return (
     <div className="">
       <Header />
-
       {/* Hero Section */}
       <motion.main
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="min-h-screen pt-44 px-6 lg:px-24 xl:px-32 relative"
+        className="min-h-min pt-44 px-6 lg:px-24 xl:px-32 2xl:px-60 relative"
       >
         {/* Tab Navigation */}
         <nav className="flex flex-wrap gap-4 md:gap-8 mb-8">
@@ -100,7 +99,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
-              className="text-4xl md:text-6xl text-black font-bold"
+              className="text-4xl md:text-5xl lg:text-6xl text-black font-bold"
             >
               {tabs.find((tab) => tab.id === selectedTab)?.text}
             </motion.h1>
@@ -123,7 +122,7 @@ export default function Home() {
           initial={{ opacity: 0, rotate: -10 }}
           animate={{ opacity: 1, rotate: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="absolute top-56 right-0"
+          className="absolute top-56 right-0 sm:top-16 md:top-2"
         >
           <Image src={circle} alt="circle" />
         </motion.div>
@@ -132,7 +131,7 @@ export default function Home() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="hidden lg:flex lg:absolute top-44 right-40"
+          className="hidden lg:flex lg:absolute top-44 right-40 lg:top-32 lg:right-12 2xl:right-96"
         >
           <Image src={figma} alt="figma" />
         </motion.div>
@@ -141,7 +140,7 @@ export default function Home() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="hidden lg:flex lg:absolute bottom-50 right-96"
+          className="hidden lg:flex lg:absolute bottom-50 right-96 lg:bottom-0 lg:right-40 2xl:right-1/4"
         >
           <Image src={vsCode} alt="vs-code" />
         </motion.div>
@@ -152,13 +151,13 @@ export default function Home() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="px-6 lg:px-24 xl:px-32"
+        className=" mt-20 px-6 lg:px-24 xl:px-32 sm:mt-20 xl:mt-36 2xl:px-60"
       >
         <motion.h2
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="text-black text-xl font-semibold"
+          className="text-black text-xl xl:text-3xl font-semibold"
         >
           Featured Work
         </motion.h2>
@@ -169,7 +168,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
           whileHover={{ y: -5 }}
-          className="mt-6"
+          className="mt-6 md:flex md:items-start md:gap-6"
         >
           <div className="pt-6 relative">
             <Image src={shoopy} alt="shoopy" />
@@ -188,9 +187,9 @@ export default function Home() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.6 }}
-              className="bg-gray-200 p-2 rounded pt-2 w-8/12"
+              className="bg-gray-200 p-2 rounded pt-2 w-8/12 2xl:w-6/12 2xl:mt-10"
             >
-              <p className="text-gray-500 text-xs text-center m-0">
+              <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
                 Mobile, Web, Website & Admin
               </p>
             </motion.div>
@@ -199,7 +198,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.8 }}
-              className="text-black text-xl font-semibold pt-2"
+              className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2 2xl:mt-4 2xl:pr-20"
             >
               Shoopy UX Case Study: Empowering SMBs in Tier 2-3 Cities to go
               digital
@@ -209,7 +208,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 2 }}
-              className="text-gray-500 pt-2"
+              className="text-gray-500 pt-2 xl:text-lg"
             >
               I led design efforts collaborating with cross-functional teams to
               enhance Shoopy's UX expanding its presence in SMBs with engaging
@@ -220,17 +219,21 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2.2 }}
-              className="flex items-start justify-between pt-4 gap-2"
+              className="flex items-start justify-between pt-4 gap-2 2xl:mt-10"
             >
               <div className="w-6/12">
-                <h4 className="text-lg font-semibold text-black">60%</h4>
-                <p className="text-xs text-black">
+                <h4 className="text-lg font-semibold text-black 2xl:text-3xl">
+                  60%
+                </h4>
+                <p className="text-xs text-black xl:text-sm 2xl:text-xl 2xl:mt-2">
                   Average increase in SMB income after going online
                 </p>
               </div>
               <div className="w-6/12">
-                <h4 className="text-lg font-semibold text-black">45%</h4>
-                <p className="text-xs text-black">
+                <h4 className="text-lg font-semibold text-black 2xl:text-3xl">
+                  45%
+                </h4>
+                <p className="text-xs text-black xl:text-sm 2xl:text-xl 2xl:mt-2">
                   Increase in user base, demonstrating significant growth and
                   effectiveness
                 </p>
@@ -240,117 +243,118 @@ export default function Home() {
         </motion.div>
         {/* project 1 ends here  */}
 
-        {/* project 2 starts here */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 2.4 }}
-          whileHover={{ y: -5 }}
-          className="mt-6"
-        >
-          <div className="pt-6 relative">
-            <Image src={bigradar} alt="bigradar" />
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 2.6 }}
-              className="absolute top-4 right-0 bg-black p-2 rounded"
-            >
-              <p className="text-white text-sm">6 mins read</p>
-            </motion.div>
-          </div>
+        <div className="md:flex md:items-start md:gap-6 2xl:gap-20">
+          {/* project 2 starts here */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 2.4 }}
+            whileHover={{ y: -5 }}
+            className="mt-6"
+          >
+            <div className="pt-6 relative">
+              <Image src={bigradar} alt="bigradar" />
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 2.6 }}
+                className="absolute top-4 right-0 bg-black p-2 rounded 2xl:right-24"
+              >
+                <p className="text-white text-sm">6 mins read</p>
+              </motion.div>
+            </div>
 
-          <div className="pt-4">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 2.8 }}
-              className="bg-gray-200 p-2 rounded pt-2 w-8/12"
-            >
-              <p className="text-gray-500 text-xs text-center m-0">
-                Mobile, Web, Website & Admin
-              </p>
-            </motion.div>
+            <div className="pt-4">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 2.8 }}
+                className="bg-gray-200 p-2 rounded pt-2 w-8/12 2xl:w-6/12"
+              >
+                <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
+                  Mobile, Web, Website & Admin
+                </p>
+              </motion.div>
 
-            <motion.h2
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 3 }}
-              className="text-black text-xl font-semibold pt-2"
-            >
-              Boosting BigRadar’s Expansion Across Africa & Europe
-            </motion.h2>
+              <motion.h2
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 3 }}
+                className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2"
+              >
+                Boosting BigRadar’s Expansion Across Africa & Europe
+              </motion.h2>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 3.2 }}
-              className="text-gray-500 pt-2"
-            >
-              I led design efforts collaborating with cross-functional teams to
-              enhance Shoopy's UX expanding its presence in SMBs with engaging
-              features.
-            </motion.p>
-          </div>
-        </motion.div>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 3.2 }}
+                className="text-gray-500 pt-2 xl:text-lg"
+              >
+                I led design efforts collaborating with cross-functional teams
+                to enhance Shoopy's UX expanding its presence in SMBs with
+                engaging features.
+              </motion.p>
+            </div>
+          </motion.div>
 
-        {/* project 2 ends here  */}
+          {/* project 2 ends here  */}
 
-        {/* project 3 starts here */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 3.2 }}
-          whileHover={{ y: -5 }}
-          className="mt-6"
-        >
-          <div className="pt-6 relative">
-            <Image src={billSubmit} alt="billsubmit" />
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 3.4 }}
-              className="absolute top-4 right-0 bg-black p-2 rounded"
-            >
-              <p className="text-white text-sm">6 mins read</p>
-            </motion.div>
-          </div>
+          {/* project 3 starts here */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 3.2 }}
+            whileHover={{ y: -5 }}
+            className="mt-6"
+          >
+            <div className="pt-6 relative">
+              <Image src={billSubmit} alt="billsubmit" />
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 3.4 }}
+                className="absolute top-4 right-0 bg-black p-2 rounded 2xl:right-24"
+              >
+                <p className="text-white text-sm">6 mins read</p>
+              </motion.div>
+            </div>
 
-          <div className="pt-4">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 3.6 }}
-              className="bg-gray-200 p-2 rounded pt-2 w-8/12"
-            >
-              <p className="text-gray-500 text-xs text-center m-0">
-                Mobile, Web, Website & Admin
-              </p>
-            </motion.div>
+            <div className="pt-4">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 3.6 }}
+                className="bg-gray-200 p-2 rounded pt-2 w-8/12"
+              >
+                <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
+                  Mobile, Web, Website & Admin
+                </p>
+              </motion.div>
 
-            <motion.h2
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 3.8 }}
-              className="text-black text-xl font-semibold pt-2"
-            >
-              Boosting BigRadar’s Expansion Across Africa & Europe
-            </motion.h2>
+              <motion.h2
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 3.8 }}
+                className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2"
+              >
+                Boosting BigRadar’s Expansion Across Africa & Europe
+              </motion.h2>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 4 }}
-              className="text-gray-500 pt-2"
-            >
-              I led design efforts collaborating with cross-functional teams to
-              enhance Shoopy's UX expanding its presence in SMBs with engaging
-              features.
-            </motion.p>
-          </div>
-        </motion.div>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 4 }}
+                className="text-gray-500 pt-2 xl:text-lg"
+              >
+                I led design efforts collaborating with cross-functional teams
+                to enhance Shoopy's UX expanding its presence in SMBs with
+                engaging features.
+              </motion.p>
+            </div>
+          </motion.div>
+        </div>
       </motion.div>
-
       {/* project 3 ends here  */}
 
       {/* Notable work starts  */}
@@ -360,13 +364,13 @@ export default function Home() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 4 }}
-          className="border border-solid border-gray-100 rounded-md mt-8 p-4 shadow-lg relative z-0 mx-6 lg:mx-24 xl:mx-32"
+          className="border border-solid border-gray-100 rounded-md mt-8 p-4 shadow-lg relative z-0 mx-6 lg:mx-24 xl:mx-32 2xl:mx-60 lg:mt-16 xl:p-6 2xl:p-10 xl:my-36"
         >
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 4 }}
-            className="text-black text-xl font-semibold pt-2"
+            className="text-black text-xl font-semibold pt-2 xl:text-3xl"
           >
             Notable Work
           </motion.h2>
@@ -374,7 +378,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 4.2 }}
-            className="text-gray-500 pt-2"
+            className="text-gray-500 pt-2 xl:text-lg 2xl:pr-60"
           >
             I led design efforts collaborating with cross-functional teams to
             enhance Shoopy's UX expanding its presence in SMBs with engaging
@@ -384,24 +388,24 @@ export default function Home() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 4.4 }}
-            className="flex flex-wrap mt-6"
+            className="flex flex-wrap mt-6 justify-between 2xl:justify-start 2xl:gap-10"
           >
-            <div className="w-6/12 p-2">
+            <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
               <Image src={olympiad} alt="olympiad" />
             </div>
-            <div className="w-6/12 p-2">
+            <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
               <Image src={imsa} alt="imsa" />
             </div>
-            <div className="w-6/12 p-2">
+            <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
               <Image src={mahjong} alt="olympiad" />
             </div>
-            <div className="w-6/12 p-2">
+            <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
               <Image src={go} alt="imsa" />
             </div>
-            <div className="w-6/12 p-2">
+            <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
               <Image src={aicf} alt="olympiad" />
             </div>
-            <div className="w-6/12 p-2">
+            <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
               <Image src={draughts} alt="imsa" />
             </div>
           </motion.div>
@@ -410,7 +414,7 @@ export default function Home() {
             initial={{ opacity: 0, rotate: -10 }}
             animate={{ opacity: 1, rotate: 0 }}
             transition={{ duration: 0.8, delay: 4.2 }}
-            className="absolute -bottom-36 -left-20 -z-50 w-48"
+            className="absolute -bottom-36 -left-20 -z-50 w-48 md:w-96 md:-bottom-96 xl:-left-36 2xl:-left-60 2xl:w-4/12"
           >
             <Image src={circle} alt="circle" className="rotate-180" />
           </motion.div>
@@ -424,18 +428,18 @@ export default function Home() {
         initial={{ opacity: 0, rotate: -10 }}
         animate={{ opacity: 1, rotate: 0 }}
         transition={{ duration: 0.8, delay: 4.8 }}
-        className="mt-10 mx-6 lg:mx-24 xl:mx-32"
+        className="mt-10 mx-6 lg:mx-24 xl:mx-32 2xl:mx-60 sm:flex sm:items-start sm:gap-6 xl:gap-10"
       >
-        <div>
+        <div className="w-full sm:w-6/12 sm:mt-10">
           <Image src={aman} alt="aman" />
         </div>
 
-        <motion.div>
+        <motion.div className="w-full sm:w-6/12 xl:mt-0 2xl:mt-20">
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 4.8 }}
-            className="text-black text-xl font-semibold pt-8"
+            className="text-black text-xl font-semibold pt-8 xl:text-3xl"
           >
             My Story
           </motion.h2>
@@ -443,7 +447,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 4.8 }}
-            className="text-gray-500 pt-2"
+            className="text-gray-500 pt-2 xl:text-lg"
           >
             I led design efforts collaborating with cross-functional teams to
             enhance Shoopy's UX expanding its presence in SMBs with engaging
@@ -455,7 +459,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 4.8 }}
-            className="text-gray-500 pt-2"
+            className="text-gray-500 pt-2 xl:text-lg"
           >
             I led design efforts collaborating with cross-functional teams to
             enhance Shoopy's UX expanding its presence in SMBs with engaging
@@ -467,7 +471,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 4.8 }}
-            className="text-gray-500 pt-2"
+            className="text-gray-500 pt-2 xl:text-lg"
           >
             I led design efforts collaborating with cross-functional teams to
             enhance Shoopy's UX expanding its presence in SMBs with engaging
@@ -482,7 +486,7 @@ export default function Home() {
 
       {/* my stack starts here  */}
       <motion.div
-        className="mx-6 lg:mx-24 xl:mx-32"
+        className="mx-6 lg:mx-24 xl:mx-32 2xl:mx-60 xl:my-20"
         initial={{ opacity: 0, rotate: -10 }}
         animate={{ opacity: 1, rotate: 0 }}
         transition={{ duration: 0.8, delay: 4.8 }}
@@ -491,7 +495,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 5 }}
-          className="text-black text-xl font-semibold pt-8"
+          className="text-black text-xl font-semibold pt-8 xl:text-3xl"
         >
           My Stack
         </motion.h2>
@@ -499,7 +503,7 @@ export default function Home() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 4.8 }}
-          className="text-gray-500 pt-2"
+          className="text-gray-500 pt-2 xl:text-lg"
         >
           Commitment to staying updated with the latest design and coding
           technologies
@@ -509,17 +513,19 @@ export default function Home() {
           initial={{ opacity: 0, rotate: -10 }}
           animate={{ opacity: 1, rotate: 0 }}
           transition={{ duration: 0.8 }}
-          className="mt-4"
+          className="mt-4 md:flex md:flex-wrap md:gap-4 md:items-center md:justify-between 2xl:mt-10"
         >
           {/* figma stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between">
+          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between md:w-5/12">
             <div className="flex items-center gap-2">
               <div className="w-2/12">
                 <Image src={figmaLogo} alt="figma-logo" />
               </div>
               <div>
-                <motion.h3 className="text-black font-medium">Figma</motion.h3>
-                <motion.p className="text-gray-600 text-sm">
+                <motion.h3 className="text-black font-medium xl:text-lg">
+                  Figma
+                </motion.h3>
+                <motion.p className="text-gray-600 text-s xl:text-md">
                   Interface Design Tool
                 </motion.p>
               </div>
@@ -534,14 +540,16 @@ export default function Home() {
           {/* figma stack end */}
 
           {/* notion stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4">
+          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
             <div className="flex items-center gap-2">
               <div className="w-2/12">
                 <Image src={notion} alt="notion-logo" />
               </div>
               <div>
-                <motion.h3 className="text-black font-medium">Notion</motion.h3>
-                <motion.p className="text-gray-600 text-sm">
+                <motion.h3 className="text-black font-medium xl:text-lg">
+                  Notion
+                </motion.h3>
+                <motion.p className="text-gray-600 text-sm xl:text-md">
                   Productivity Tool
                 </motion.p>
               </div>
@@ -556,14 +564,16 @@ export default function Home() {
           {/* notion stack end */}
 
           {/* framer stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4">
+          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
             <div className="flex items-center gap-2">
               <div className="w-2/12">
                 <Image src={framer} alt="framer-logo" />
               </div>
               <div>
-                <motion.h3 className="text-black font-medium">Framer</motion.h3>
-                <motion.p className="text-gray-600 text-sm">
+                <motion.h3 className="text-black font-medium xl:text-lg">
+                  Framer
+                </motion.h3>
+                <motion.p className="text-gray-600 text-sm xl:text-md">
                   No Code Design Tool
                 </motion.p>
               </div>
@@ -578,16 +588,16 @@ export default function Home() {
           {/* framer stack end */}
 
           {/* webflow stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4">
+          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
             <div className="flex items-center gap-2">
               <div className="w-2/12">
                 <Image src={webflow} alt="webflow-logo" />
               </div>
               <div>
-                <motion.h3 className="text-black font-medium">
+                <motion.h3 className="text-black font-medium xl:text-lg">
                   Webflow
                 </motion.h3>
-                <motion.p className="text-gray-600 text-sm">
+                <motion.p className="text-gray-600 text-sm xl:text-md">
                   No Code Design Tool
                 </motion.p>
               </div>
@@ -602,16 +612,16 @@ export default function Home() {
           {/* webflow stack end */}
 
           {/* wordpress stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4">
+          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
             <div className="flex items-center gap-2">
               <div className="w-2/12">
                 <Image src={wordpress} alt="wordpress-logo" />
               </div>
               <div>
-                <motion.h3 className="text-black font-medium">
+                <motion.h3 className="text-black font-medium xl:text-lg">
                   Wordpress
                 </motion.h3>
-                <motion.p className="text-gray-600 text-sm">
+                <motion.p className="text-gray-600 text-sm xl:text-md">
                   No Code Design Tool
                 </motion.p>
               </div>
@@ -626,14 +636,16 @@ export default function Home() {
           {/* wordpress stack end */}
 
           {/* mern stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4">
+          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
             <div className="flex items-center gap-2">
               <div className="w-2/12">
                 <Image src={mern} alt="mern-logo" />
               </div>
               <div>
-                <motion.h3 className="text-black font-medium">MERN</motion.h3>
-                <motion.p className="text-gray-600 text-sm">
+                <motion.h3 className="text-black font-medium xl:text-lg">
+                  MERN
+                </motion.h3>
+                <motion.p className="text-gray-600 text-sm xl:text-md">
                   Coding Stack
                 </motion.p>
               </div>
@@ -648,16 +660,16 @@ export default function Home() {
           {/* mern stack end */}
 
           {/* react-native stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4">
+          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
             <div className="flex items-center gap-2">
               <div className="w-2/12">
                 <Image src={reactNative} alt="react-native-logo" />
               </div>
               <div>
-                <motion.h3 className="text-black font-medium">
+                <motion.h3 className="text-black font-medium xl:text-lg">
                   React-Native
                 </motion.h3>
-                <motion.p className="text-gray-600 text-sm">
+                <motion.p className="text-gray-600 text-sm xl:text-md">
                   Mobile App Development
                 </motion.p>
               </div>
@@ -672,16 +684,16 @@ export default function Home() {
           {/* react-native stack end */}
 
           {/* davinci stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4">
+          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
             <div className="flex items-center gap-2">
               <div className="w-2/12">
                 <Image src={davinci} alt="davinci-logo" />
               </div>
               <div>
-                <motion.h3 className="text-black font-medium">
+                <motion.h3 className="text-black font-medium xl:text-lg">
                   Davinci Resolve
                 </motion.h3>
-                <motion.p className="text-gray-600 text-sm">
+                <motion.p className="text-gray-600 text-sm xl:text-md">
                   Video Editing Tool
                 </motion.p>
               </div>
@@ -696,14 +708,16 @@ export default function Home() {
           {/* davinci stack end */}
 
           {/* nextjs stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4">
+          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
             <div className="flex items-center gap-2">
               <div className="w-2/12">
                 <Image src={nextjs} alt="nextjs-logo" />
               </div>
               <div>
-                <motion.h3 className="text-black font-medium">NextJs</motion.h3>
-                <motion.p className="text-gray-600 text-sm">
+                <motion.h3 className="text-black font-medium xl:text-lg">
+                  NextJs
+                </motion.h3>
+                <motion.p className="text-gray-600 text-sm xl:text-md">
                   React-framework
                 </motion.p>
               </div>
@@ -718,16 +732,16 @@ export default function Home() {
           {/* nextjs stack end */}
 
           {/* tailwind stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4">
+          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
             <div className="flex items-center gap-2">
               <div className="w-2/12">
                 <Image src={tailwind} alt="tailwind-logo" />
               </div>
               <div>
-                <motion.h3 className="text-black font-medium">
+                <motion.h3 className="text-black font-medium xl:text-lg">
                   Tailwind CSS
                 </motion.h3>
-                <motion.p className="text-gray-600 text-sm">
+                <motion.p className="text-gray-600 text-sm xl:text-md">
                   CSS Framework
                 </motion.p>
               </div>

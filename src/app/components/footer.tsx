@@ -17,9 +17,9 @@ export default function Footer() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="mx-6 lg:mx-24 xl:mx-32"
+        className="mx-6 lg:mx-24 xl:mx-32 2xl:mx-60"
       >
-        <motion.div>
+        <motion.div className="md:flex md:items-center md:justify-between">
           <motion.div className="flex items-center">
             <motion.div className="w-4/12">
               <Image src={email} alt="email" />
@@ -50,13 +50,13 @@ export default function Footer() {
       {/* want to work together ends */}
 
       {/* footer starts  */}
-      <div className="mx-6 lg:mx-24 xl:mx-32 pb-20">
-        <div className="border-b-2 border-solid border-1 border-black my-10"></div>
-        <div className="">
+      <div className="mx-6 lg:mx-24 xl:mx-32 2xl:mx-60 pb-20">
+        <div className="border-b-2 border-solid border-1 border-black my-10 lg:my-16"></div>
+        <div className="lg:flex lg:items-start lg:justify-between">
           <div>
             <Image src={logo} alt="logo" />
           </div>
-          <div className="mt-8">
+          <div className="mt-8 lg:mt-0">
             <p className="text-gray-500 pt-2 hover:text-black">Home</p>
             <p className="text-gray-500 pt-2 hover:text-black ">My Story</p>
             <p className="text-gray-500 pt-2 hover:text-black ">Resume</p>
@@ -64,13 +64,13 @@ export default function Footer() {
               Connect With Me
             </p>
           </div>
-          <div className="mt-8">
+          <div className="mt-8 lg:mt-0">
             <p className="text-gray-500 pt-2 hover:text-black">Instagram</p>
             <p className="text-gray-500 pt-2 hover:text-black ">Linkedin</p>
             <p className="text-gray-500 pt-2 hover:text-black ">Youtube</p>
             <p className="text-gray-500 pt-2 hover:text-black ">X</p>
           </div>
-          <div className="mt-8">
+          <div className="mt-8 lg:mt-0">
             <p className="pt-2 text-black font-bold">
               2024 Aman Jakhar. All Rights Reserved
             </p>
