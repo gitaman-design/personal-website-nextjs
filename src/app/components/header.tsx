@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { motion, AnimatePresence } from "framer-motion";
 import logo from "../../../public/aj-logo.png";
 import insta from "../../../public/insta.png";
 import yt from "../../../public/youtube.png";
@@ -59,49 +60,64 @@ export default function Header() {
           </div>
         </nav>
 
-        <Dialog
-          open={mobileMenuOpen}
-          onClose={setMobileMenuOpen}
-          className="lg:hidden transition-all duration-1000"
-        >
-          <div className="fixed inset-0 z-50" />
-          <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-            <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span className="sr-only">Aman Jakhar</span>
-                <Image src={logo} alt="logo" width={46} height={46} />
-              </a>
-              <button
-                type="button"
-                onClick={() => setMobileMenuOpen(false)}
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-              >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon aria-hidden="true" className="h-6 w-6" />
-              </button>
-            </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-                <div className="flex flex-1 gap-6 py-6">
-                  <Image src={yt} alt="yt" width={20} height={20} />
-                  <Image src={insta} alt="insta" width={20} height={20} />
-                  <Image src={x} alt="x" width={20} height={20} />
+        <AnimatePresence mode="wait">
+          <Dialog
+            open={mobileMenuOpen}
+            onClose={setMobileMenuOpen}
+            className="lg:hidden transition-all duration-1000"
+          >
+            <div className="fixed inset-0 z-50" />
+            <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+              <div className="flex items-center justify-between">
+                <a href="#" className="-m-1.5 p-1.5">
+                  <span className="sr-only">Aman Jakhar</span>
+                  <Image src={logo} alt="logo" width={46} height={46} />
+                </a>
+                <motion.button
+                  type="button"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span className="sr-only">Close menu</span>
+                  <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+                </motion.button>
+              </div>
+              <div className="mt-6 flow-root">
+                <div className="-my-6 divide-y divide-gray-500/10">
+                  <motion.div
+                    className="space-y-2 py-6"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    {navigation.map((item) => (
+                      <a
+                        key={item.name}
+                        href={item.href}
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </motion.div>
+                  <motion.div
+                    className="flex flex-1 gap-6 py-6"
+                    initial={{ opacity: 0, rotate: -10 }}
+                    animate={{ opacity: 1, rotate: 0 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                  >
+                    <Image src={yt} alt="yt" width={20} height={20} />
+                    <Image src={insta} alt="insta" width={20} height={20} />
+                    <Image src={x} alt="x" width={20} height={20} />
+                  </motion.div>
                 </div>
               </div>
-            </div>
-          </DialogPanel>
-        </Dialog>
+            </DialogPanel>
+          </Dialog>
+        </AnimatePresence>
       </header>
     </div>
   );
