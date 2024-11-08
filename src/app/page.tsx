@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import circle from "../../public/hero-circle.png";
 import figma from "../../public/figma.png";
@@ -29,6 +30,37 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 import Header from "./components/header";
 import Footer from "./components/footer";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 },
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const stackItemVariants = {
+  initial: { opacity: 0, y: 20 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+  hover: {
+    y: -5,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = useState("anyone");
@@ -61,18 +93,71 @@ export default function Home() {
     },
   ];
 
+  const stackItems = [
+    {
+      icon: figmaLogo,
+      title: "Figma",
+      description: "Interface Design Tool",
+    },
+    {
+      icon: notion,
+      title: "Notion",
+      description: "Productivity Tool",
+    },
+    {
+      icon: framer,
+      title: "Framer",
+      description: "No Code Design Tool",
+    },
+    {
+      icon: webflow,
+      title: "Webflow",
+      description: "No Code Design Tool",
+    },
+    {
+      icon: wordpress,
+      title: "Wordpress",
+      description: "No Code Design Tool",
+    },
+    {
+      icon: mern,
+      title: "MERN",
+      description: "Coding Stack",
+    },
+    {
+      icon: reactNative,
+      title: "React-Native",
+      description: "Mobile App Development",
+    },
+    {
+      icon: davinci,
+      title: "Davinci Resolve",
+      description: "Video Editing Tool",
+    },
+    {
+      icon: nextjs,
+      title: "NextJs",
+      description: "React-framework",
+    },
+    {
+      icon: tailwind,
+      title: "Tailwind CSS",
+      description: "CSS Framework",
+    },
+  ];
+
   return (
     <div className="">
       <Header />
       {/* Hero Section */}
       <motion.main
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        variants={staggerContainer}
+        initial="initial"
+        animate="animate"
         className="min-h-min pt-44 px-6 lg:px-24 xl:px-32 2xl:px-60 relative"
       >
         {/* Tab Navigation */}
-        <nav className="flex flex-wrap gap-4 md:gap-8 mb-8">
+        <nav className="flex flex-wrap gap-4 md:gap-8 mb-8 z-auto">
           {tabs.map((tab) => (
             <motion.button
               key={tab.id}
@@ -107,6 +192,7 @@ export default function Home() {
 
           {/* Job Status Indicator */}
           <motion.div
+            variants={staggerContainer}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
@@ -122,12 +208,13 @@ export default function Home() {
           initial={{ opacity: 0, rotate: -10 }}
           animate={{ opacity: 1, rotate: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="absolute top-56 right-0 sm:top-16 md:top-2"
+          className="absolute top-56 right-0 sm:top-48 md:top-60 sm:w-80 md:top-2"
         >
           <Image src={circle} alt="circle" />
         </motion.div>
 
         <motion.div
+          variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -137,6 +224,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div
+          variants={staggerContainer}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -148,6 +236,7 @@ export default function Home() {
 
       {/* Featured Work Section */}
       <motion.div
+        variants={staggerContainer}
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.8 }}
@@ -163,84 +252,88 @@ export default function Home() {
         </motion.h2>
 
         {/* Project Card 1 */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          whileHover={{ y: -5 }}
-          className="mt-6 md:flex md:items-start md:gap-6"
-        >
-          <div className="pt-6 relative">
-            <Image src={shoopy} alt="shoopy" />
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.4 }}
-              className="absolute top-4 right-0 bg-black p-2 rounded"
-            >
-              <p className="text-white text-sm">5 mins read</p>
-            </motion.div>
-          </div>
+        <Link href="/case-study/shoopy">
+          <motion.div
+            variants={staggerContainer}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            whileHover={{ y: -5 }}
+            className="mt-6 md:flex md:items-start md:gap-6"
+          >
+            <div className="pt-6 relative">
+              <Image src={shoopy} alt="shoopy" />
+              <motion.div
+                variants={staggerContainer}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.4 }}
+                className="absolute top-4 right-0 bg-black p-2 rounded"
+              >
+                <p className="text-white text-sm">5 mins read</p>
+              </motion.div>
+            </div>
 
-          <div className="pt-4">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1.6 }}
-              className="bg-gray-200 p-2 rounded pt-2 w-8/12 2xl:w-6/12 2xl:mt-10"
-            >
-              <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
-                Mobile, Web, Website & Admin
-              </p>
-            </motion.div>
-
-            <motion.h2
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.8 }}
-              className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2 2xl:mt-4 2xl:pr-20"
-            >
-              Shoopy UX Case Study: Empowering SMBs in Tier 2-3 Cities to go
-              digital
-            </motion.h2>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2 }}
-              className="text-gray-500 pt-2 xl:text-lg"
-            >
-              I led design efforts collaborating with cross-functional teams to
-              enhance Shoopy's UX expanding its presence in SMBs with engaging
-              features.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2.2 }}
-              className="flex items-start justify-between pt-4 gap-2 2xl:mt-10"
-            >
-              <div className="w-6/12">
-                <h4 className="text-lg font-semibold text-black 2xl:text-3xl">
-                  60%
-                </h4>
-                <p className="text-xs text-black xl:text-sm 2xl:text-xl 2xl:mt-2">
-                  Average increase in SMB income after going online
+            <div className="pt-4">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.6 }}
+                className="bg-gray-200 p-2 rounded pt-2 w-8/12 2xl:w-6/12 2xl:mt-10"
+              >
+                <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
+                  Mobile, Web, Website & Admin
                 </p>
-              </div>
-              <div className="w-6/12">
-                <h4 className="text-lg font-semibold text-black 2xl:text-3xl">
-                  45%
-                </h4>
-                <p className="text-xs text-black xl:text-sm 2xl:text-xl 2xl:mt-2">
-                  Increase in user base, demonstrating significant growth and
-                  effectiveness
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
+              </motion.div>
+
+              <motion.h2
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.8 }}
+                className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2 2xl:mt-4 2xl:pr-20"
+              >
+                Shoopy UX Case Study: Empowering SMBs in Tier 2-3 Cities to go
+                digital
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2 }}
+                className="text-gray-500 pt-2 xl:text-lg"
+              >
+                I led design efforts collaborating with cross-functional teams
+                to enhance Shoopy's UX expanding its presence in SMBs with
+                engaging features.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2.2 }}
+                className="flex items-start justify-between pt-4 gap-2 2xl:mt-10"
+              >
+                <div className="w-6/12">
+                  <h4 className="text-lg font-semibold text-black 2xl:text-3xl">
+                    60%
+                  </h4>
+                  <p className="text-xs text-black xl:text-sm 2xl:text-xl 2xl:mt-2">
+                    Average increase in SMB income after going online
+                  </p>
+                </div>
+                <div className="w-6/12">
+                  <h4 className="text-lg font-semibold text-black 2xl:text-3xl">
+                    45%
+                  </h4>
+                  <p className="text-xs text-black xl:text-sm 2xl:text-xl 2xl:mt-2">
+                    Increase in user base, demonstrating significant growth and
+                    effectiveness
+                  </p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </Link>
         {/* project 1 ends here  */}
 
         <div className="md:flex md:items-start md:gap-6 2xl:gap-20">
@@ -248,7 +341,8 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 2.4 }}
+            transition={{ duration: 0.8, delay: 2 }}
+            variants={staggerContainer}
             whileHover={{ y: -5 }}
             className="mt-6"
           >
@@ -257,7 +351,8 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 2.6 }}
+                transition={{ delay: 2 }}
+                variants={staggerContainer}
                 className="absolute top-4 right-0 bg-black p-2 rounded 2xl:right-24"
               >
                 <p className="text-white text-sm">6 mins read</p>
@@ -268,7 +363,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 2.8 }}
+                transition={{ delay: 2 }}
                 className="bg-gray-200 p-2 rounded pt-2 w-8/12 2xl:w-6/12"
               >
                 <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
@@ -279,7 +374,7 @@ export default function Home() {
               <motion.h2
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 3 }}
+                transition={{ delay: 2 }}
                 className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2"
               >
                 Boosting BigRadar’s Expansion Across Africa & Europe
@@ -288,7 +383,7 @@ export default function Home() {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 3.2 }}
+                transition={{ delay: 2 }}
                 className="text-gray-500 pt-2 xl:text-lg"
               >
                 I led design efforts collaborating with cross-functional teams
@@ -304,7 +399,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.2 }}
+            transition={{ duration: 0.8, delay: 2 }}
             whileHover={{ y: -5 }}
             className="mt-6"
           >
@@ -313,7 +408,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 3.4 }}
+                transition={{ delay: 2 }}
                 className="absolute top-4 right-0 bg-black p-2 rounded 2xl:right-24"
               >
                 <p className="text-white text-sm">6 mins read</p>
@@ -324,7 +419,7 @@ export default function Home() {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 3.6 }}
+                transition={{ delay: 2 }}
                 className="bg-gray-200 p-2 rounded pt-2 w-8/12"
               >
                 <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
@@ -335,7 +430,7 @@ export default function Home() {
               <motion.h2
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 3.8 }}
+                transition={{ delay: 2 }}
                 className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2"
               >
                 Boosting BigRadar’s Expansion Across Africa & Europe
@@ -344,7 +439,7 @@ export default function Home() {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 4 }}
+                transition={{ delay: 2 }}
                 className="text-gray-500 pt-2 xl:text-lg"
               >
                 I led design efforts collaborating with cross-functional teams
@@ -363,13 +458,13 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 4 }}
+          transition={{ delay: 2 }}
           className="border border-solid border-gray-100 rounded-md mt-8 p-4 shadow-lg relative z-0 mx-6 lg:mx-24 xl:mx-32 2xl:mx-60 lg:mt-16 xl:p-6 2xl:p-10 xl:my-36"
         >
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 4 }}
+            transition={{ delay: 2 }}
             className="text-black text-xl font-semibold pt-2 xl:text-3xl"
           >
             Notable Work
@@ -377,7 +472,7 @@ export default function Home() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 4.2 }}
+            transition={{ delay: 2 }}
             className="text-gray-500 pt-2 xl:text-lg 2xl:pr-60"
           >
             I led design efforts collaborating with cross-functional teams to
@@ -387,7 +482,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 4.4 }}
+            transition={{ delay: 2 }}
             className="flex flex-wrap mt-6 justify-between 2xl:justify-start 2xl:gap-10"
           >
             <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
@@ -413,7 +508,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, rotate: -10 }}
             animate={{ opacity: 1, rotate: 0 }}
-            transition={{ duration: 0.8, delay: 4.2 }}
+            transition={{ duration: 0.8, delay: 2 }}
             className="absolute -bottom-36 -left-20 -z-50 w-48 md:w-96 md:-bottom-96 xl:-left-36 2xl:-left-60 2xl:w-4/12"
           >
             <Image src={circle} alt="circle" className="rotate-180" />
@@ -427,7 +522,7 @@ export default function Home() {
       <motion.div
         initial={{ opacity: 0, rotate: -10 }}
         animate={{ opacity: 1, rotate: 0 }}
-        transition={{ duration: 0.8, delay: 4.8 }}
+        transition={{ duration: 0.8, delay: 2 }}
         className="mt-10 mx-6 lg:mx-24 xl:mx-32 2xl:mx-60 sm:flex sm:items-start sm:gap-6 xl:gap-10"
       >
         <div className="w-full sm:w-6/12 sm:mt-10">
@@ -438,7 +533,7 @@ export default function Home() {
           <motion.h2
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 4.8 }}
+            transition={{ delay: 2 }}
             className="text-black text-xl font-semibold pt-8 xl:text-3xl"
           >
             My Story
@@ -446,7 +541,7 @@ export default function Home() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 4.8 }}
+            transition={{ delay: 2 }}
             className="text-gray-500 pt-2 xl:text-lg"
           >
             I led design efforts collaborating with cross-functional teams to
@@ -458,7 +553,7 @@ export default function Home() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 4.8 }}
+            transition={{ delay: 2 }}
             className="text-gray-500 pt-2 xl:text-lg"
           >
             I led design efforts collaborating with cross-functional teams to
@@ -470,7 +565,7 @@ export default function Home() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 4.8 }}
+            transition={{ delay: 2 }}
             className="text-gray-500 pt-2 xl:text-lg"
           >
             I led design efforts collaborating with cross-functional teams to
@@ -489,12 +584,12 @@ export default function Home() {
         className="mx-6 lg:mx-24 xl:mx-32 2xl:mx-60 xl:my-20"
         initial={{ opacity: 0, rotate: -10 }}
         animate={{ opacity: 1, rotate: 0 }}
-        transition={{ duration: 0.8, delay: 4.8 }}
+        transition={{ duration: 0.8, delay: 2 }}
       >
         <motion.h2
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 5 }}
+          transition={{ delay: 2 }}
           className="text-black text-xl font-semibold pt-8 xl:text-3xl"
         >
           My Stack
@@ -502,7 +597,7 @@ export default function Home() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 4.8 }}
+          transition={{ delay: 2 }}
           className="text-gray-500 pt-2 xl:text-lg"
         >
           Commitment to staying updated with the latest design and coding
@@ -510,250 +605,39 @@ export default function Home() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, rotate: -10 }}
-          animate={{ opacity: 1, rotate: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mt-4 md:flex md:flex-wrap md:gap-4 md:items-center md:justify-between 2xl:mt-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          variants={staggerContainer}
+          className="mt-4 md:flex md:flex-wrap md:gap-4 md:items-center 2xl:mt-10"
         >
-          {/* figma stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between md:w-5/12">
-            <div className="flex items-center gap-2">
-              <div className="w-2/12">
-                <Image src={figmaLogo} alt="figma-logo" />
+          {stackItems.map((item, index) => (
+            <motion.div
+              key={index}
+              variants={stackItemVariants}
+              whileHover="hover"
+              className="p-6 rounded-lg border border-gray-100 hover:shadow-lg transition-shadow duration-200 sm:mt-2 mt-4"
+            >
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 relative flex-shrink-0">
+                  <Image
+                    src={item.icon}
+                    alt={`${item.title} icon`}
+                    layout="fill"
+                    objectFit="contain"
+                    className="rounded-md"
+                  />
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-lg font-medium text-gray-900">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-gray-500">{item.description}</p>
+                </div>
+                <ArrowRightIcon className="w-5 h-5 text-gray-400 flex-shrink-0" />
               </div>
-              <div>
-                <motion.h3 className="text-black font-medium xl:text-lg">
-                  Figma
-                </motion.h3>
-                <motion.p className="text-gray-600 text-s xl:text-md">
-                  Interface Design Tool
-                </motion.p>
-              </div>
-            </div>
-            <div>
-              <ArrowRightIcon
-                aria-hidden="true"
-                className="h-4 w-4 text-black"
-              />
-            </div>
-          </motion.div>
-          {/* figma stack end */}
-
-          {/* notion stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
-            <div className="flex items-center gap-2">
-              <div className="w-2/12">
-                <Image src={notion} alt="notion-logo" />
-              </div>
-              <div>
-                <motion.h3 className="text-black font-medium xl:text-lg">
-                  Notion
-                </motion.h3>
-                <motion.p className="text-gray-600 text-sm xl:text-md">
-                  Productivity Tool
-                </motion.p>
-              </div>
-            </div>
-            <div>
-              <ArrowRightIcon
-                aria-hidden="true"
-                className="h-4 w-4 text-black"
-              />
-            </div>
-          </motion.div>
-          {/* notion stack end */}
-
-          {/* framer stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
-            <div className="flex items-center gap-2">
-              <div className="w-2/12">
-                <Image src={framer} alt="framer-logo" />
-              </div>
-              <div>
-                <motion.h3 className="text-black font-medium xl:text-lg">
-                  Framer
-                </motion.h3>
-                <motion.p className="text-gray-600 text-sm xl:text-md">
-                  No Code Design Tool
-                </motion.p>
-              </div>
-            </div>
-            <div>
-              <ArrowRightIcon
-                aria-hidden="true"
-                className="h-4 w-4 text-black"
-              />
-            </div>
-          </motion.div>
-          {/* framer stack end */}
-
-          {/* webflow stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
-            <div className="flex items-center gap-2">
-              <div className="w-2/12">
-                <Image src={webflow} alt="webflow-logo" />
-              </div>
-              <div>
-                <motion.h3 className="text-black font-medium xl:text-lg">
-                  Webflow
-                </motion.h3>
-                <motion.p className="text-gray-600 text-sm xl:text-md">
-                  No Code Design Tool
-                </motion.p>
-              </div>
-            </div>
-            <div>
-              <ArrowRightIcon
-                aria-hidden="true"
-                className="h-4 w-4 text-black"
-              />
-            </div>
-          </motion.div>
-          {/* webflow stack end */}
-
-          {/* wordpress stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
-            <div className="flex items-center gap-2">
-              <div className="w-2/12">
-                <Image src={wordpress} alt="wordpress-logo" />
-              </div>
-              <div>
-                <motion.h3 className="text-black font-medium xl:text-lg">
-                  Wordpress
-                </motion.h3>
-                <motion.p className="text-gray-600 text-sm xl:text-md">
-                  No Code Design Tool
-                </motion.p>
-              </div>
-            </div>
-            <div>
-              <ArrowRightIcon
-                aria-hidden="true"
-                className="h-4 w-4 text-black"
-              />
-            </div>
-          </motion.div>
-          {/* wordpress stack end */}
-
-          {/* mern stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
-            <div className="flex items-center gap-2">
-              <div className="w-2/12">
-                <Image src={mern} alt="mern-logo" />
-              </div>
-              <div>
-                <motion.h3 className="text-black font-medium xl:text-lg">
-                  MERN
-                </motion.h3>
-                <motion.p className="text-gray-600 text-sm xl:text-md">
-                  Coding Stack
-                </motion.p>
-              </div>
-            </div>
-            <div>
-              <ArrowRightIcon
-                aria-hidden="true"
-                className="h-4 w-4 text-black"
-              />
-            </div>
-          </motion.div>
-          {/* mern stack end */}
-
-          {/* react-native stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
-            <div className="flex items-center gap-2">
-              <div className="w-2/12">
-                <Image src={reactNative} alt="react-native-logo" />
-              </div>
-              <div>
-                <motion.h3 className="text-black font-medium xl:text-lg">
-                  React-Native
-                </motion.h3>
-                <motion.p className="text-gray-600 text-sm xl:text-md">
-                  Mobile App Development
-                </motion.p>
-              </div>
-            </div>
-            <div>
-              <ArrowRightIcon
-                aria-hidden="true"
-                className="h-4 w-4 text-black"
-              />
-            </div>
-          </motion.div>
-          {/* react-native stack end */}
-
-          {/* davinci stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
-            <div className="flex items-center gap-2">
-              <div className="w-2/12">
-                <Image src={davinci} alt="davinci-logo" />
-              </div>
-              <div>
-                <motion.h3 className="text-black font-medium xl:text-lg">
-                  Davinci Resolve
-                </motion.h3>
-                <motion.p className="text-gray-600 text-sm xl:text-md">
-                  Video Editing Tool
-                </motion.p>
-              </div>
-            </div>
-            <div>
-              <ArrowRightIcon
-                aria-hidden="true"
-                className="h-4 w-4 text-black"
-              />
-            </div>
-          </motion.div>
-          {/* davinci stack end */}
-
-          {/* nextjs stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
-            <div className="flex items-center gap-2">
-              <div className="w-2/12">
-                <Image src={nextjs} alt="nextjs-logo" />
-              </div>
-              <div>
-                <motion.h3 className="text-black font-medium xl:text-lg">
-                  NextJs
-                </motion.h3>
-                <motion.p className="text-gray-600 text-sm xl:text-md">
-                  React-framework
-                </motion.p>
-              </div>
-            </div>
-            <div>
-              <ArrowRightIcon
-                aria-hidden="true"
-                className="h-4 w-4 text-black"
-              />
-            </div>
-          </motion.div>
-          {/* nextjs stack end */}
-
-          {/* tailwind stack */}
-          <motion.div className="border border-solid rounded-md border-gray-100 p-4 flex items-center justify-between mt-4 md:mt-0 md:w-5/12">
-            <div className="flex items-center gap-2">
-              <div className="w-2/12">
-                <Image src={tailwind} alt="tailwind-logo" />
-              </div>
-              <div>
-                <motion.h3 className="text-black font-medium xl:text-lg">
-                  Tailwind CSS
-                </motion.h3>
-                <motion.p className="text-gray-600 text-sm xl:text-md">
-                  CSS Framework
-                </motion.p>
-              </div>
-            </div>
-            <div>
-              <ArrowRightIcon
-                aria-hidden="true"
-                className="h-4 w-4 text-black"
-              />
-            </div>
-          </motion.div>
-          {/* tailwind stack end */}
+            </motion.div>
+          ))}
         </motion.div>
       </motion.div>
       {/* my stack ends here  */}
