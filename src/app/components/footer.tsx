@@ -69,7 +69,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="https://drive.google.com/file/d/1em02kNdsk7lAdnBqgQCoeipZDWObVxiM/view?usp=sharing"
+              href="https://drive.google.com/file/d/1uh6dGrywHwCYSaYatSdOS2tPoZvXSYep/view?usp=sharing"
               target="_blank"
             >
               <p className="text-gray-500 pt-2 hover:text">Resume</p>

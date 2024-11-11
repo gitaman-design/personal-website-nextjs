@@ -16,7 +16,7 @@ const navigation = [
   { name: "My Story", href: "/story" },
   {
     name: "Resume",
-    href: "https://drive.google.com/file/d/1em02kNdsk7lAdnBqgQCoeipZDWObVxiM/view?usp=sharing",
+    href: "https://drive.google.com/file/d/1uh6dGrywHwCYSaYatSdOS2tPoZvXSYep/view?usp=sharing",
     isExternal: true,
   },
   { name: "Connect With Me", href: "/contact" },
