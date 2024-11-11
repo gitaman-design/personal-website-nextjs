@@ -48,7 +48,6 @@ export default function Page() {
   return (
     <div className="">
       <Head>
-        {/* HTML Meta Tags */}
         <title>Aman Jakhar : UX Designer & Developer</title>
         <meta
           name="description"
