@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
+import Link from "next/link";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence } from "framer-motion";
@@ -36,13 +37,15 @@ export default function Footer() {
             </motion.div>
           </motion.div>
           <motion.div>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`text-md md:text-sm transition-colors duration-200 bg-black p-4 w-full rounded-md mt-2`}
-            >
-              Connect With Me
-            </motion.button>
+            <Link href="/contact">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`text-md md:text-sm transition-colors duration-200 bg-black p-4 w-full rounded-md mt-2`}
+              >
+                Connect With Me
+              </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
       </motion.div>
@@ -57,18 +60,43 @@ export default function Footer() {
             <Image src={logo} alt="logo" />
           </div>
           <div className="mt-8 lg:mt-0">
-            <p className="text-gray-500 pt-2 hover:text-black">Home</p>
-            <p className="text-gray-500 pt-2 hover:text-black ">My Story</p>
-            <p className="text-gray-500 pt-2 hover:text-black ">Resume</p>
-            <p className="text-gray-500 pt-2 hover:text-black ">
-              Connect With Me
-            </p>
+            <Link href="/">
+              <p className="text-gray-500 pt-2 hover:text-black">Home</p>
+            </Link>
+
+            <Link href="/story">
+              <p className="text-gray-500 pt-2 hover:text-black ">My Story</p>
+            </Link>
+
+            <Link
+              href="https://drive.google.com/file/d/1em02kNdsk7lAdnBqgQCoeipZDWObVxiM/view?usp=sharing"
+              target="_blank"
+            >
+              <p className="text-gray-500 pt-2 hover:text">Resume</p>
+            </Link>
+            <Link href="/contact">
+              <p className="text-gray-500 pt-2 hover:text-black ">
+                Connect With Me
+              </p>
+            </Link>
           </div>
           <div className="mt-8 lg:mt-0">
-            <p className="text-gray-500 pt-2 hover:text-black">Instagram</p>
-            <p className="text-gray-500 pt-2 hover:text-black ">Linkedin</p>
-            <p className="text-gray-500 pt-2 hover:text-black ">Youtube</p>
-            <p className="text-gray-500 pt-2 hover:text-black ">X</p>
+            <Link href="https://www.instagram.com/uxuiaman/" target="_blank">
+              <p className="text-gray-500 pt-2 hover:text-black">Instagram</p>
+            </Link>
+
+            <Link
+              href="https://www.linkedin.com/in/aman-jakhar-562107107/"
+              target="_blank"
+            >
+              <p className="text-gray-500 pt-2 hover:text-black ">Linkedin</p>
+            </Link>
+            <Link href="https://www.youtube.com/@uxuiaman" target="_blank">
+              <p className="text-gray-500 pt-2 hover:text-black ">Youtube</p>
+            </Link>
+            <Link href="https://x.com/_amanjakhar" target="_blank">
+              <p className="text-gray-500 pt-2 hover:text-black ">X</p>
+            </Link>
           </div>
           <div className="mt-8 lg:mt-0">
             <p className="pt-2 text-black font-bold">

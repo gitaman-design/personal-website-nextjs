@@ -1,14 +1,15 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import circle from "../../public/hero-circle.png";
 import figma from "../../public/figma.png";
 import vsCode from "../../public/visual-studio-code.png";
 import shoopy from "../../public/shoopy-small.png";
-import bigradar from "../../public/bigradar-small.png";
-import billSubmit from "../../public/billsubmit.png";
+import lifeCare from "../../public/lifeCare-banner.png";
+import billSubmit from "../../public/Billsubmit-banner.png";
+import fanball from "../../public/FanBall-Banner.png";
 import olympiad from "../../public/olympiad.png";
 import imsa from "../../public/imsa.png";
 import mahjong from "../../public/mahjong.png";
@@ -26,6 +27,7 @@ import reactNative from "../../public/react-native.png";
 import davinci from "../../public/davinci.png";
 import nextjs from "../../public/nextjs.png";
 import tailwind from "../../public/tailwind.png";
+import brCover from "../../public/br-cover.png";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 import Header from "./components/header";
@@ -64,17 +66,18 @@ const stackItemVariants = {
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = useState("anyone");
+  const [hoveredItem, setHoveredItem] = useState<number | null>(null);
 
   const tabs = [
     {
       id: "anyone",
       label: "For Anyone",
-      text: "Hello there, I'm a designer who cares about making beautiful things that help people.",
+      text: "Hello there, I'm a designer & Developer who cares about making beautiful things that help people.",
     },
     {
       id: "recruiters",
       label: "Recruiters",
-      text: "Looking to hire? I'm a seasoned designer with expertise in creating impactful digital experiences.",
+      text: "Looking to hire? I'm a seasoned designer & Developer with expertise in creating impactful digital experiences.",
     },
     {
       id: "design-leads",
@@ -143,6 +146,64 @@ export default function Home() {
       icon: tailwind,
       title: "Tailwind CSS",
       description: "CSS Framework",
+    },
+  ];
+
+  const projects = [
+    {
+      id: 1,
+      name: "Olympiad",
+      image: olympiad,
+      description:
+        "Designed and developed the official website for Chess Olympiad 2022, Chennai.",
+      link: "https://chennai2022.fide.com/",
+      buttons: [
+        { label: "Visit Website", url: "https://chennai2022.fide.com/" },
+      ],
+    },
+    {
+      id: 2,
+      name: "IMSA",
+      image: imsa,
+      description:
+        "Created the digital presence for the International Mind Sports Association.",
+      link: "https://imsa.sport/",
+      buttons: [{ label: "Visit Website", url: "https://imsa.sport/" }],
+    },
+    {
+      id: 3,
+      name: "Mahjong",
+      image: mahjong,
+      description:
+        "Developed the official website for international Mahjong tournaments.",
+      link: "https://mahjong-mil.org/",
+      buttons: [{ label: "Visit Website", url: "https://mahjong-mil.org/" }],
+    },
+    {
+      id: 4,
+      name: "Go",
+      image: go,
+      description:
+        "Built the official website for international GO Federation.",
+      link: "https://www.intergofed.org/",
+      buttons: [{ label: "Visit Website", url: "https://www.intergofed.org/" }],
+    },
+    {
+      id: 5,
+      name: "AICF",
+      image: aicf,
+      description:
+        "Redesigned the All India Chess Federation's digital presence.",
+      link: "https://aicf.in",
+      buttons: [{ label: "Visit Website", url: "https://aicf.in" }],
+    },
+    {
+      id: 6,
+      name: "Draughts",
+      image: draughts,
+      description: "Created the website for World Draughts Federation.",
+      link: "#",
+      buttons: [{ label: "Visit Website", url: "#" }],
     },
   ];
 
@@ -252,7 +313,7 @@ export default function Home() {
         </motion.h2>
 
         {/* Project Card 1 */}
-        <Link href="/case-study/shoopy">
+        <Link href="/case-study/bigradar">
           <motion.div
             variants={staggerContainer}
             initial={{ opacity: 0, y: 30 }}
@@ -261,28 +322,28 @@ export default function Home() {
             whileHover={{ y: -5 }}
             className="mt-6 md:flex md:items-start md:gap-6"
           >
-            <div className="pt-6 relative">
-              <Image src={shoopy} alt="shoopy" />
+            <div className="pt-6 relative w-full md:w-6/12">
+              <Image src={brCover} alt="bigradar" sizes="100vw" />
               <motion.div
                 variants={staggerContainer}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.4 }}
-                className="absolute top-4 right-0 bg-black p-2 rounded"
+                className="absolute top-4 right-0 2xl:right-20 bg-black p-2 rounded"
               >
-                <p className="text-white text-sm">5 mins read</p>
+                <p className="text-white text-sm">8 mins read</p>
               </motion.div>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4  md:w-6/12">
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.6 }}
-                className="bg-gray-200 p-2 rounded pt-2 w-8/12 2xl:w-6/12 2xl:mt-10"
+                className="bg-gray-200 p-2 rounded pt-2 w-9/12 2xl:w-6/12 2xl:mt-10"
               >
                 <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
-                  Mobile, Web, Website & Admin
+                  End-To-End Product Development
                 </p>
               </motion.div>
 
@@ -290,10 +351,9 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.8 }}
-                className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2 2xl:mt-4 2xl:pr-20"
+                className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2 2xl:mt-4 2xl:pr-20 hover:underline transition-shadow duration-200"
               >
-                Shoopy UX Case Study: Empowering SMBs in Tier 2-3 Cities to go
-                digital
+                BigRadar : Powering Seamless Customer Connections
               </motion.h2>
 
               <motion.p
@@ -302,9 +362,9 @@ export default function Home() {
                 transition={{ delay: 2 }}
                 className="text-gray-500 pt-2 xl:text-lg"
               >
-                I led design efforts collaborating with cross-functional teams
-                to enhance Shoopy's UX expanding its presence in SMBs with
-                engaging features.
+                As a product lead at BigRadar, my role in the development of
+                BigRadar has been multifaceted and deeply involved in every
+                aspect of the product lifecycle.
               </motion.p>
 
               <motion.div
@@ -315,19 +375,20 @@ export default function Home() {
               >
                 <div className="w-6/12">
                   <h4 className="text-lg font-semibold text-black 2xl:text-3xl">
-                    60%
+                    40%
                   </h4>
                   <p className="text-xs text-black xl:text-sm 2xl:text-xl 2xl:mt-2">
-                    Average increase in SMB income after going online
+                    Reduction in customer support costs due to improved
+                    efficiencies in handling inquiries
                   </p>
                 </div>
                 <div className="w-6/12">
                   <h4 className="text-lg font-semibold text-black 2xl:text-3xl">
-                    45%
+                    60%
                   </h4>
                   <p className="text-xs text-black xl:text-sm 2xl:text-xl 2xl:mt-2">
-                    Increase in user base, demonstrating significant growth and
-                    effectiveness
+                    faster response times and personalized interactions, reports
+                    higher satisfaction levels among customers
                   </p>
                 </div>
               </motion.div>
@@ -344,53 +405,56 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 2 }}
             variants={staggerContainer}
             whileHover={{ y: -5 }}
-            className="mt-6"
+            className="mt-6 md:w-6/12"
           >
-            <div className="pt-6 relative">
-              <Image src={bigradar} alt="bigradar" />
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 2 }}
-                variants={staggerContainer}
-                className="absolute top-4 right-0 bg-black p-2 rounded 2xl:right-24"
-              >
-                <p className="text-white text-sm">6 mins read</p>
-              </motion.div>
-            </div>
+            <Link href="/case-study/shoopy">
+              <div className="pt-6 relative">
+                <Image src={shoopy} alt="shoopy" />
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 2 }}
+                  variants={staggerContainer}
+                  className="absolute top-4 right-0 bg-black p-2 rounded 2xl:right-24"
+                >
+                  <p className="text-white text-sm">6 mins read</p>
+                </motion.div>
+              </div>
 
-            <div className="pt-4">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 2 }}
-                className="bg-gray-200 p-2 rounded pt-2 w-8/12 2xl:w-6/12"
-              >
-                <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
-                  Mobile, Web, Website & Admin
-                </p>
-              </motion.div>
+              <div className="pt-4">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 2 }}
+                  className="bg-gray-200 p-2 rounded pt-2 w-8/12 2xl:w-6/12"
+                >
+                  <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
+                    Mobile, Web, Website & Admin
+                  </p>
+                </motion.div>
 
-              <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2 }}
-                className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2"
-              >
-                Boosting BigRadar’s Expansion Across Africa & Europe
-              </motion.h2>
+                <motion.h2
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2 }}
+                  className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2 hover:underline transition-shadow duration-200"
+                >
+                  Shoopy UX Case Study: Empowering SMBs in Tier 2-3 Cities to Go
+                  Digital
+                </motion.h2>
 
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2 }}
-                className="text-gray-500 pt-2 xl:text-lg"
-              >
-                I led design efforts collaborating with cross-functional teams
-                to enhance Shoopy's UX expanding its presence in SMBs with
-                engaging features.
-              </motion.p>
-            </div>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2 }}
+                  className="text-gray-500 pt-2 xl:text-lg"
+                >
+                  I led design efforts collaborating with cross-functional teams
+                  to enhance Shoopy’s UX expanding its presence in SMBs with
+                  engaging features.
+                </motion.p>
+              </div>
+            </Link>
           </motion.div>
 
           {/* project 2 ends here  */}
@@ -401,56 +465,198 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2 }}
             whileHover={{ y: -5 }}
-            className="mt-6"
+            className="mt-6 md:w-6/12"
           >
-            <div className="pt-6 relative">
-              <Image src={billSubmit} alt="billsubmit" />
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 2 }}
-                className="absolute top-4 right-0 bg-black p-2 rounded 2xl:right-24"
-              >
-                <p className="text-white text-sm">6 mins read</p>
-              </motion.div>
-            </div>
+            <Link
+              href="https://www.behance.net/gallery/80782331/Lifecare-health-Branding-Website-Design"
+              target="_blank"
+            >
+              <div className="pt-6 relative">
+                <Image src={lifeCare} alt="lifecare" sizes="100vw" />
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 2 }}
+                  className="absolute top-4 right-0 bg-black p-2 rounded 2xl:right-24"
+                >
+                  <p className="text-white text-sm">6 mins read</p>
+                </motion.div>
+              </div>
 
-            <div className="pt-4">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 2 }}
-                className="bg-gray-200 p-2 rounded pt-2 w-8/12"
-              >
-                <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
-                  Mobile, Web, Website & Admin
-                </p>
-              </motion.div>
+              <div className="pt-4">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 2 }}
+                  className="bg-gray-200 p-2 rounded pt-2 w-8/12"
+                >
+                  <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
+                    Mobile, Web, Website, Admin & Branding
+                  </p>
+                </motion.div>
 
-              <motion.h2
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2 }}
-                className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2"
-              >
-                Boosting BigRadar’s Expansion Across Africa & Europe
-              </motion.h2>
+                <motion.h2
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2 }}
+                  className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2 hover:underline transition-shadow duration-200"
+                >
+                  LifeCare Health : One of the leading healthcare subscription
+                  portal
+                </motion.h2>
 
-              <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2 }}
-                className="text-gray-500 pt-2 xl:text-lg"
-              >
-                I led design efforts collaborating with cross-functional teams
-                to enhance Shoopy's UX expanding its presence in SMBs with
-                engaging features.
-              </motion.p>
-            </div>
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2 }}
+                  className="text-gray-500 pt-2 xl:text-lg"
+                >
+                  LifeCare health is a subscription-based online pharmacy that
+                  enables all chronic patients with Diabetes, Heart Conditions,
+                  Hypertension, Renal Disorders etc. to place online medicine
+                  order and refill them every month.
+                </motion.p>
+              </div>
+            </Link>
           </motion.div>
         </div>
+        {/* project 3 ends here  */}
+
+        <div className="md:flex md:items-start md:gap-6 2xl:gap-20">
+          {/* project 4 starts here */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 2 }}
+            variants={staggerContainer}
+            whileHover={{ y: -5 }}
+            className="mt-6 md:w-6/12"
+          >
+            <Link
+              href="https://www.behance.net/gallery/147801877/Football-Fantasy-Mobile-App-FanBall-XI"
+              target="_blank"
+            >
+              <div className="pt-6 relative">
+                <Image src={fanball} alt="fanball" />
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 2 }}
+                  variants={staggerContainer}
+                  className="absolute top-4 right-0 bg-black p-2 rounded 2xl:right-24"
+                >
+                  <p className="text-white text-sm">4 mins read</p>
+                </motion.div>
+              </div>
+
+              <div className="pt-4">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 2 }}
+                  className="bg-gray-200 p-2 rounded pt-2 w-8/12 2xl:w-6/12"
+                >
+                  <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
+                    Mobile App Design
+                  </p>
+                </motion.div>
+
+                <motion.h2
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2 }}
+                  className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2 hover:underline transition-shadow duration-200"
+                >
+                  FanBall XI : Fantasy Sports Platform for Football fans.
+                </motion.h2>
+
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2 }}
+                  className="text-gray-500 pt-2 xl:text-lg"
+                >
+                  FanBall XI aims to provide a fantasy sports platform where
+                  football fans can compete in mega & head to head contests by
+                  building unique fantasy teams using their football knowledge &
+                  skills.
+                </motion.p>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* project 4 ends here  */}
+
+          {/* project 5 starts here */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 2 }}
+            whileHover={{ y: -5 }}
+            className="mt-6 md:w-6/12"
+          >
+            <Link href="https://billsubmit.com/" target="_blank">
+              <div className="pt-6 relative">
+                <Image src={billSubmit} alt="billsubmit" sizes="100vw" />
+                {/* <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 2 }}
+                  className="absolute top-4 right-0 bg-black p-2 rounded 2xl:right-24"
+                >
+                  <p className="text-white text-sm">6 mins read</p>
+                </motion.div> */}
+              </div>
+
+              <div className="pt-4">
+                <div className="flex items-center gap-4">
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 2 }}
+                    className="bg-gray-200 p-2 rounded pt-2 w-8/12"
+                  >
+                    <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
+                      SaaS Product
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 2 }}
+                    className="bg-black p-2 rounded pt-2 w-8/12"
+                  >
+                    <p className="text-white text-xs text-center m-0 xl:text-lg">
+                      Coming Very Soon
+                    </p>
+                  </motion.div>
+                </div>
+
+                <motion.h2
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2 }}
+                  className="text-black text-xl font-semibold pt-2 xl:text-3xl xl:mt-2 hover:underline transition-shadow duration-200"
+                >
+                  BillSubmit : Keep your bills organised for years
+                </motion.h2>
+
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 2 }}
+                  className="text-gray-500 pt-2 xl:text-lg"
+                >
+                  Make your accountant life easy, You don’t have to panic or to
+                  search your documents to send every single bill to your
+                  accountant. Just upload it on BillSubmit.
+                </motion.p>
+              </div>
+            </Link>
+          </motion.div>
+          {/* project 5 ends here */}
+        </div>
       </motion.div>
-      {/* project 3 ends here  */}
 
       {/* Notable work starts  */}
 
@@ -479,32 +685,69 @@ export default function Home() {
             enhance Shoopy's UX expanding its presence in SMBs with engaging
             features.
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 2 }}
-            className="flex flex-wrap mt-6 justify-between 2xl:justify-start 2xl:gap-10"
-          >
-            <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
-              <Image src={olympiad} alt="olympiad" />
-            </div>
-            <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
-              <Image src={imsa} alt="imsa" />
-            </div>
-            <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
-              <Image src={mahjong} alt="olympiad" />
-            </div>
-            <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
-              <Image src={go} alt="imsa" />
-            </div>
-            <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
-              <Image src={aicf} alt="olympiad" />
-            </div>
-            <div className="w-6/12 p-2 sm:p-6 sm:w-36 md:w-28 md:p-2">
-              <Image src={draughts} alt="imsa" />
-            </div>
-          </motion.div>
 
+          <div className="flex flex-wrap mt-6 gap-4 justify-between 2xl:justify-start 2xl:gap-10">
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                className="relative w-[calc(50%-0.5rem)] sm:w-36 md:w-28 group"
+                onMouseEnter={() => setHoveredItem(project.id)}
+                onMouseLeave={() => setHoveredItem(null)}
+              >
+                <Link
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block md:hidden"
+                >
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-auto"
+                  />
+                </Link>
+
+                {/* Desktop Version with Hover */}
+                <div className="hidden md:block">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-auto"
+                  />
+
+                  {/* Hover Overlay */}
+                  <div
+                    className={`absolute cursor-pointer top-0 right-0 left-0 bg-black w-52 rounded-md bg-opacity-90 transition-opacity duration-300 flex flex-col justify-center items-center p-6 z-50 ${
+                      hoveredItem === project.id
+                        ? "opacity-200"
+                        : "opacity-0 pointer-events-none"
+                    }`}
+                  >
+                    <h3 className="text-white font-semibold text-sm mb-2">
+                      {project.name}
+                    </h3>
+                    <p className="text-gray-300 text-xs mb-4 text-center">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-col gap-2 w-full">
+                      {project.buttons.map((button, index) => (
+                        <a
+                          key={index}
+                          href={button.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center gap-2 bg-white text-black text-xs py-3 px-3 rounded-md hover:bg-gray-100 transition-colors"
+                        >
+                          {button.label}
+                          <ArrowRightIcon className="w-3 h-3" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
           <motion.div
             initial={{ opacity: 0, rotate: -10 }}
             animate={{ opacity: 1, rotate: 0 }}
@@ -544,36 +787,38 @@ export default function Home() {
             transition={{ delay: 2 }}
             className="text-gray-500 pt-2 xl:text-lg"
           >
-            I led design efforts collaborating with cross-functional teams to
-            enhance Shoopy's UX expanding its presence in SMBs with engaging
-            features. I led design efforts collaborating with cross-functional
-            teams to enhance Shoopy's UX expanding its presence in SMBs with
-            engaging features.
+            From the sports fields of Haryana to the digital design world, my
+            journey has been anything but conventional. As a former competitive
+            chess and cricket player turned self-taught UI/UX designer and
+            developer, I've learned that success isn't always about following
+            the traditional path – it's about finding your passion and pursuing
+            it relentlessly.
+            <br></br>
+            <br></br>
+            After discovering design through a data entry job, I taught myself
+            UI/UX design through online resources and hands-on practice. Since
+            2016, I've been crafting digital experiences for leading companies
+            while maintaining a successful freelance practice. Recently, I've
+            expanded my toolkit to include full-stack development with the MERN
+            stack, combining my design expertise with technical capabilities to
+            create comprehensive digital solutions.
+            <br></br>
+            <br></br>
+            Currently, I'm bringing this blend of skills to my role at BigRadar
+            while continuing to take on exciting freelance projects. Every day
+            brings new challenges and opportunities to create, learn, and grow.
           </motion.p>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
-            className="text-gray-500 pt-2 xl:text-lg"
-          >
-            I led design efforts collaborating with cross-functional teams to
-            enhance Shoopy's UX expanding its presence in SMBs with engaging
-            features. I led design efforts collaborating with cross-functional
-            teams to enhance Shoopy's UX expanding its presence in SMBs with
-            engaging features.
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
-            className="text-gray-500 pt-2 xl:text-lg"
-          >
-            I led design efforts collaborating with cross-functional teams to
-            enhance Shoopy's UX expanding its presence in SMBs with engaging
-            features. I led design efforts collaborating with cross-functional
-            teams to enhance Shoopy's UX expanding its presence in SMBs with
-            engaging features.
-          </motion.p>
+          <motion.div>
+            <Link href="/story">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`text-md md:text-sm transition-colors duration-200 bg-gray-100 p-4 w-full rounded-md mt-2 text-black`}
+              >
+                Read In Detail
+              </motion.button>
+            </Link>
+          </motion.div>
         </motion.div>
       </motion.div>
 
@@ -634,7 +879,7 @@ export default function Home() {
                   </h3>
                   <p className="text-sm text-gray-500">{item.description}</p>
                 </div>
-                <ArrowRightIcon className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                {/* <ArrowRightIcon className="w-5 h-5 text-gray-400 flex-shrink-0" /> */}
               </div>
             </motion.div>
           ))}

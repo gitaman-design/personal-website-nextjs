@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "../../components/header";
@@ -93,7 +93,7 @@ export default function Page() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
-            className="bg-gray-200 p-2 rounded pt-2 w-8/12 2xl:w-6/12"
+            className="bg-gray-200 p-2 rounded pt-2 w-8/12 sm:w-4/12 2xl:w-6/12"
           >
             <p className="text-gray-500 text-xs text-center m-0 xl:text-lg">
               Mobile, Web, Website & Admin
@@ -105,7 +105,7 @@ export default function Page() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
-            className="text-4xl md:text-5xl lg:text-6xl text-black font-bold mt-6"
+            className="text-4xl md:text-5xl lg:text-6xl text-black font-bold mt-6 lg:pr-36"
           >
             Shoopy UX Case Study: Empowering SMBs in Tier 2-3 Cities to Go
             Digital
@@ -114,7 +114,7 @@ export default function Page() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2 }}
-            className="text-gray-500 pt-2 xl:text-lg mt-2"
+            className="text-gray-500 pt-2 xl:text-lg mt-2 lg:pr-36"
           >
             I led design efforts collaborating with cross-functional teams to
             enhance Shoopy's UX expanding its presence in SMBs with engaging
@@ -157,7 +157,7 @@ export default function Page() {
           {tags.map((value, index) => (
             <motion.div
               key={index}
-              className="text-xs bg-gray-100 rounded-md text-black p-2 w-auto"
+              className="text-xs bg-gray-100 lg:text-sm rounded-md text-black p-2 w-auto"
             >
               {value.label}
             </motion.div>
@@ -169,55 +169,55 @@ export default function Page() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="pt-10 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
+        className="pt-10 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black md:flex md:items-start md:justify-between"
       >
         <motion.div
           variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="border-r-2 border-solid border-black"
+          className=" md:pr-4 md:h-40 md:mr-3 lg:mr-6 md:border-gray-100 border-r-2 border-solid border-black w-full"
         >
-          <h3 className="text-lg font-semibold">My Role</h3>
-          <p className="text-sm mt-1">Design Lead</p>
-          <p className="text-sm mt-1">UX Designer</p>
-          <p className="text-sm mt-1">User Researcher</p>
-          <p className="text-sm mt-1">UI Designer</p>
+          <h3 className="text-lg 2xl:text-xl font-semibold">My Role</h3>
+          <p className="text-sm 2xl:text-lg mt-1">Design Lead</p>
+          <p className="text-sm 2xl:text-lg mt-1">UX Designer</p>
+          <p className="text-sm 2xl:text-lg mt-1">User Researcher</p>
+          <p className="text-sm 2xl:text-lg mt-1">UI Designer</p>
         </motion.div>
         <motion.div
           variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-6 border-r-2 border-solid border-black"
+          className="mt-6 md:mt-0 md:h-40 md:mr-3 lg:mr-6 md:border-gray-100  border-r-2 border-solid border-black w-full"
         >
-          <h3 className="text-lg font-semibold">Deliverables</h3>
-          <p className="text-sm mt-1">Flow Creation</p>
-          <p className="text-sm mt-1">High Fidelity Design</p>
-          <p className="text-sm mt-1">Research & Testing</p>
-          <p className="text-sm mt-1">Quality Assurance</p>
+          <h3 className="text-lg 2xl:text-xl font-semibold">Deliverables</h3>
+          <p className="text-sm 2xl:text-lg mt-1">Flow Creation</p>
+          <p className="text-sm 2xl:text-lg mt-1">High Fidelity Design</p>
+          <p className="text-sm 2xl:text-lg mt-1">Research & Testing</p>
+          <p className="text-sm 2xl:text-lg mt-1">Quality Assurance</p>
         </motion.div>
         <motion.div
           variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-6 border-r-2 border-solid border-black"
+          className="mt-6 md:mt-0 md:h-40 md:mr-3 lg:mr-6 md:border-gray-100  border-r-2 border-solid border-black w-full"
         >
-          <h3 className="text-lg font-semibold">Team</h3>
-          <p className="text-sm mt-1">Design Team</p>
-          <p className="text-sm mt-1">Development Team</p>
-          <p className="text-sm mt-1">Founders</p>
+          <h3 className="text-lg 2xl:text-xl font-semibold">Team</h3>
+          <p className="text-sm 2xl:text-lg mt-1">Design Team</p>
+          <p className="text-sm 2xl:text-lg mt-1">Development Team</p>
+          <p className="text-sm 2xl:text-lg mt-1">Founders</p>
         </motion.div>
         <motion.div
           variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-6 border-r-2 border-solid border-black"
+          className="mt-6 md:mt-0 md:h-40 md:border-gray-100 border-r-2 border-solid 2xl:border-none border-black w-full"
         >
-          <h3 className="text-lg font-semibold">Years</h3>
-          <p className="text-sm mt-1">2023 - Present</p>
+          <h3 className="text-lg 2xl:text-xl font-semibold">Years</h3>
+          <p className="text-sm 2xl:text-lg mt-1">2023</p>
         </motion.div>
       </motion.main>
 
@@ -225,20 +225,20 @@ export default function Page() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="pt-16 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
+        className="pt-16 md:pt-10  px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
       >
         <motion.div
           variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className=""
+          className="md:flex md:items-start md:justify-between 2xl:mt-10"
         >
-          <div>
-            <h3 className="text-lg font-semibold">My Role</h3>
+          <div className="md:w-4/12">
+            <h3 className="text-lg 2xl:text-xl font-semibold">My Work</h3>
           </div>
-          <div>
-            <p className="text-sm mt-1">
+          <div className="md:w-8/12">
+            <p className="text-sm lg:text-base 2xl:text-lg mt-1 md:mt-0 2xl:pr-20">
               Shoopy is an all-in-one e-commerce platform designed to help small
               and medium-sized businesses (SMBs) transition from offline to
               online operations. The platform specifically caters to businesses
@@ -246,10 +246,10 @@ export default function Page() {
               necessarily tech-savvy but are eager to expand their digital
               presence.
             </p>
-            <p className="text-sm mt-4">
+            <p className="text-sm lg:text-base 2xl:text-lg mt-4">
               As the Design Lead at Shoopy, I was responsible for
             </p>
-            <ul className="mt-2 list-disc list-inside text-sm">
+            <ul className="mt-2 list-disc list-inside text-sm lg:text-base 2xl:text-lg">
               <li>
                 Collaborating directly with founders to align design with
                 business objectives
@@ -276,24 +276,26 @@ export default function Page() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="pt-16 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
+        className="pt-16 md:pt-10 xl:pt-20 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
       >
         <motion.div
           variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className=""
+          className="md:flex md:items-start md:justify-between"
         >
-          <div>
-            <h3 className="text-lg font-semibold">Problem Statement</h3>
+          <div className="md:w-4/12">
+            <h3 className="text-lg 2xl:text-xl font-semibold">
+              Problem Statement
+            </h3>
           </div>
-          <div>
-            <p className="text-sm mt-1">
+          <div className="md:w-8/12">
+            <p className="text-sm lg:text-base mt-1 md:mt-0 2xl:text-lg">
               Small business owners in tier 2-3 cities of India face significant
               challenges in digitalizing their businesses:
             </p>
-            <ul className="mt-2 list-disc list-inside text-sm">
+            <ul className="mt-2 list-disc list-inside text-sm lg:text-base 2xl:text-lg">
               <li>Limited technical expertise and resources</li>
               <li>Hesitation to invest heavily in technology</li>
               <li>Uncertainty about the ROI of going digital</li>
@@ -308,7 +310,7 @@ export default function Page() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="pt-6 px-4 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
+        className="pt-6 px-4 xl:pt-20 lg:px-20 xl:px-24 2xl:px-60 relative text-black"
       >
         <motion.div
           variants={staggerContainer}
@@ -324,21 +326,23 @@ export default function Page() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="pt-16 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
+        className="pt-16 md:pt-10 xl:pt-20 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
       >
         <motion.div
           variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className=""
+          className="md:flex md:items-start md:justify-between"
         >
-          <div>
-            <h3 className="text-lg font-semibold">User Research</h3>
+          <div className="md:w-4/12">
+            <h3 className="text-lg 2xl:text-xl font-semibold">User Research</h3>
           </div>
-          <div>
-            <p className="text-md font-semibold mt-4">Target Audience</p>
-            <ul className="mt-2 list-disc list-inside text-sm">
+          <div className="md:w-8/12">
+            <p className="text-md 2xl:text-xl font-semibold mt-4 md:mt-0">
+              Target Audience
+            </p>
+            <ul className="mt-2 list-disc list-inside text-sm lg:text-base 2xl:text-lg">
               <li>Small and medium business owners</li>
               <li>Age group: 25+ years</li>
               <li>Location: Tier 2-3 cities in India</li>
@@ -356,35 +360,41 @@ export default function Page() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="pt-16 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
+        className="pt-16 md:pt-10 xl:pt-20 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
       >
         <motion.div
           variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className=""
+          className="md:flex md:items-start md:justify-between"
         >
-          <div>
-            <h3 className="text-lg font-semibold">Key User Concerns</h3>
+          <div className="md:w-4/12">
+            <h3 className="text-lg 2xl:text-xl font-semibold">
+              Key User Concerns
+            </h3>
           </div>
-          <div>
-            <p className="text-sm mt-1">
+          <div className="md:w-8/12">
+            <p className="text-sm mt-1 md:mt-0 lg:text-base 2xl:text-lg">
               Through extensive user interviews and conversations, we identified
               several recurring concerns
             </p>
-            <p className="text-md font-semibold mt-4">Technical Complexity</p>
-            <div className="flex flex-wrap gap-2 text-sm mt-2">
+            <p className="text-md 2xl:text-xl font-semibold mt-4 xl:mt-8">
+              Technical Complexity
+            </p>
+            <div className="flex flex-wrap gap-2 text-sm mt-2 xl:mt-4 2xl:text-lg">
               <div className="bg-gray-100 p-2 rounded-md">
                 <p>How hard will it be to make our store online?</p>
               </div>
-              <div className="bg-gray-100 p-2 rounded-md">
+              <div className="bg-gray-100 p-2 rounded-md 2xl:text-lg">
                 <p>Will i be able to manage it myself?</p>
               </div>
             </div>
 
-            <p className="text-md font-semibold mt-4">Time Investment</p>
-            <div className="flex flex-wrap gap-2 text-sm mt-2">
+            <p className="text-md 2xl:text-xl font-semibold mt-4 xl:mt-8">
+              Time Investment
+            </p>
+            <div className="flex flex-wrap gap-2 text-sm mt-2 xl:mt-4 2xl:text-lg">
               <div className="bg-gray-100 p-2 rounded-md">
                 <p>How much time will it take to upload our inventory?</p>
               </div>
@@ -393,8 +403,10 @@ export default function Page() {
               </div>
             </div>
 
-            <p className="text-md font-semibold mt-4">Business Growth</p>
-            <div className="flex flex-wrap gap-2 text-sm mt-2">
+            <p className="text-md 2xl:text-xl font-semibold mt-4 xl:mt-8">
+              Business Growth
+            </p>
+            <div className="flex flex-wrap gap-2 text-sm mt-2 xl:mt-4 2xl:text-lg">
               <div className="bg-gray-100 p-2 rounded-md">
                 <p>Will i be able to get any business online?</p>
               </div>
@@ -403,8 +415,10 @@ export default function Page() {
               </div>
             </div>
 
-            <p className="text-md font-semibold mt-4">ROI Concerns</p>
-            <div className="flex flex-wrap gap-2 text-sm mt-2">
+            <p className="text-md 2xl:text-xl font-semibold mt-4 xl:mt-8">
+              ROI Concerns
+            </p>
+            <div className="flex flex-wrap gap-2 text-sm mt-2 xl:mt-4 2xl:text-lg">
               <div className="bg-gray-100 p-2 rounded-md">
                 <p>How much will it cost?</p>
               </div>
@@ -420,7 +434,7 @@ export default function Page() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="pt-6 px-4 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
+        className="pt-6 px-4 xl:pt-20 lg:px-20 xl:px-24 2xl:px-60 relative text-black"
       >
         <motion.div
           variants={staggerContainer}
@@ -436,84 +450,92 @@ export default function Page() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="pt-16 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
+        className="pt-16 md:pt-10 xl:pt-20 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
       >
         <motion.div
           variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className=""
+          className="md:flex md:items-start md:justify-between"
         >
-          <div>
-            <h3 className="text-lg font-semibold">Some Design Solutions</h3>
+          <div className="md:w-4/12">
+            <h3 className="text-lg 2xl:text-xl font-semibold">
+              Some Design Solutions
+            </h3>
           </div>
-          <div>
-            <p className="text-md font-semibold mt-1">Simplified Order Flow</p>
-            <p className="text-sm mt-4">
-              Challenge: Users needed an intuitive system to manage orders
-              without getting overwhelmed.
-            </p>
-            <p className="text-sm mt-4">Solutions:</p>
+          <div className="md:w-8/12">
+            <div className="">
+              <p className="text-md 2xl:text-xl font-semibold mt-1 md:mt-0">
+                Simplified Order Flow
+              </p>
+              <p className="text-sm mt-4 2xl:text-lg">
+                Challenge: Users needed an intuitive system to manage orders
+                without getting overwhelmed.
+              </p>
+              <p className="text-sm mt-4 2xl:text-lg">Solutions:</p>
 
-            <ul className="mt-2 list-disc list-inside text-sm">
-              <li>Created a step-by-step order management system</li>
-              <li>Implemented clear status indicators</li>
-              <li>Designed simple action buttons for common tasks</li>
-              <li>Added order tracking and management features</li>
-            </ul>
-          </div>
+              <ul className="mt-2 list-disc list-inside text-sm 2xl:text-lg">
+                <li>Created a step-by-step order management system</li>
+                <li>Implemented clear status indicators</li>
+                <li>Designed simple action buttons for common tasks</li>
+                <li>Added order tracking and management features</li>
+              </ul>
+            </div>
 
-          <div>
-            <p className="text-md font-semibold mt-4">
-              Streamlined Inventory Upload
-            </p>
-            <p className="text-sm mt-4">
-              Challenge: Users found inventory management time-consuming and
-              complex.
-            </p>
-            <p className="text-sm mt-4">Solutions:</p>
+            <div className="xl:mt-8">
+              <p className="text-md font-semibold mt-4 2xl:text-xl">
+                Streamlined Inventory Upload
+              </p>
+              <p className="text-sm mt-4 2xl:text-xl">
+                Challenge: Users found inventory management time-consuming and
+                complex.
+              </p>
+              <p className="text-sm mt-4 2xl:text-lg">Solutions:</p>
 
-            <ul className="mt-2 list-disc list-inside text-sm">
-              <li>Developed bulk upload features</li>
-              <li>Created simple forms for individual product addition</li>
-              <li>Implemented category-based organization</li>
-              <li>Added quick edit features for inventory management</li>
-            </ul>
-          </div>
+              <ul className="mt-2 list-disc list-inside text-sm 2xl:text-lg">
+                <li>Developed bulk upload features</li>
+                <li>Created simple forms for individual product addition</li>
+                <li>Implemented category-based organization</li>
+                <li>Added quick edit features for inventory management</li>
+              </ul>
+            </div>
 
-          <div>
-            <p className="text-md font-semibold mt-4">
-              User-Friendly Coupon System
-            </p>
-            <p className="text-sm mt-4">
-              Challenge: Users wanted to offer discounts but struggled with
-              complex promotion systems.
-            </p>
-            <p className="text-sm mt-4">Solutions:</p>
+            <div className="xl:mt-8">
+              <p className="text-md 2xl:text-xl font-semibold mt-4">
+                User-Friendly Coupon System
+              </p>
+              <p className="text-sm mt-4 2xl:text-lg">
+                Challenge: Users wanted to offer discounts but struggled with
+                complex promotion systems.
+              </p>
+              <p className="text-sm mt-4 2xl:text-lg">Solutions:</p>
 
-            <ul className="mt-2 list-disc list-inside text-sm">
-              <li>Designed simple coupon creation flow</li>
-              <li>Implemented visual feedback for coupon status</li>
-              <li>Created easy-to-understand validation rules</li>
-              <li>Added performance tracking for promotions</li>
-            </ul>
-          </div>
+              <ul className="mt-2 list-disc list-inside text-sm 2xl:text-lg">
+                <li>Designed simple coupon creation flow</li>
+                <li>Implemented visual feedback for coupon status</li>
+                <li>Created easy-to-understand validation rules</li>
+                <li>Added performance tracking for promotions</li>
+              </ul>
+            </div>
 
-          <div>
-            <p className="text-md font-semibold mt-4">Premium Theme System</p>
-            <p className="text-sm mt-4">
-              Challenge: Users wanted professional-looking stores without design
-              expertise.
-            </p>
-            <p className="text-sm mt-4">Solutions:</p>
+            <div className="xl:mt-8">
+              <p className="text-md font-semibold mt-4 2xl:text-xl">
+                Premium Theme System
+              </p>
+              <p className="text-sm mt-4 2xl:text-lg">
+                Challenge: Users wanted professional-looking stores without
+                design expertise.
+              </p>
+              <p className="text-sm mt-4 2xl:text-lg">Solutions:</p>
 
-            <ul className="mt-2 list-disc list-inside text-sm">
-              <li>Created a library of premium themes</li>
-              <li>Implemented one-click theme application</li>
-              <li>Designed customization options for basic branding</li>
-              <li>Added mobile-responsive layouts</li>
-            </ul>
+              <ul className="mt-2 list-disc list-inside text-sm 2xl:text-lg">
+                <li>Created a library of premium themes</li>
+                <li>Implemented one-click theme application</li>
+                <li>Designed customization options for basic branding</li>
+                <li>Added mobile-responsive layouts</li>
+              </ul>
+            </div>
           </div>
         </motion.div>
       </motion.main>
@@ -522,7 +544,7 @@ export default function Page() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="pt-6 px-4 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
+        className="pt-6 px-4 md:px-8 xl:pt-20 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
       >
         <motion.div
           variants={staggerContainer}
@@ -538,46 +560,53 @@ export default function Page() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="pt-16 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
+        className="pt-16 md:pt-10 xl:pt-20 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
       >
         <motion.div
           variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className=""
+          className="md:flex md:items-start md:justify-between"
         >
-          <div>
-            <h3 className="text-lg font-semibold">Our Actions</h3>
+          <div className="md:w-4/12">
+            <h3 className="text-lg 2xl:text-xl font-semibold">Our Actions</h3>
           </div>
-          <div>
-            <p className="text-md font-semibold mt-4">Research Phase</p>
-            <ul className="mt-2 list-disc list-inside text-sm">
-              <li>Conducted user interviews with 50+ SMB owners</li>
-              <li>Created user personas based on common patterns</li>
-              <li>Mapped user journeys for critical tasks</li>
-              <li>Identified pain points and opportunities</li>
-            </ul>
-          </div>
+          <div className="md:w-8/12">
+            <div>
+              <p className="text-md 2xl:text-xl font-semibold mt-4 md:mt-0 ">
+                Research Phase
+              </p>
+              <ul className="mt-2 list-disc list-inside text-sm 2xl:text-lg">
+                <li>Conducted user interviews with 50+ SMB owners</li>
+                <li>Created user personas based on common patterns</li>
+                <li>Mapped user journeys for critical tasks</li>
+                <li>Identified pain points and opportunities</li>
+              </ul>
+            </div>
+            <div className="xl:mt-8">
+              <p className="text-md font-semibold mt-4 2xl:text-xl">
+                Design Phase
+              </p>
+              <ul className="mt-2 list-disc list-inside text-sm 2xl:text-lg">
+                <li>Created low-fidelity wireframes</li>
+                <li>Developed interactive prototypes</li>
+                <li>Conducted usability testing</li>
+                <li>Iterated based on user and founders feedback</li>
+              </ul>
+            </div>
 
-          <div>
-            <p className="text-md font-semibold mt-4">Design Phase</p>
-            <ul className="mt-2 list-disc list-inside text-sm">
-              <li>Created low-fidelity wireframes</li>
-              <li>Developed interactive prototypes</li>
-              <li>Conducted usability testing</li>
-              <li>Iterated based on user and founders feedback</li>
-            </ul>
-          </div>
-
-          <div>
-            <p className="text-md font-semibold mt-4">Implementation Phase</p>
-            <ul className="mt-2 list-disc list-inside text-sm">
-              <li>Worked closely with developers</li>
-              <li>Created detailed documentation</li>
-              <li>Conducted regular testing</li>
-              <li>Gathered user feedback for improvements</li>
-            </ul>
+            <div className="xl:mt-8">
+              <p className="text-md font-semibold mt-4 2xl:text-xl">
+                Implementation Phase
+              </p>
+              <ul className="mt-2 list-disc list-inside text-sm 2xl:text-lg">
+                <li>Worked closely with developers</li>
+                <li>Created detailed documentation</li>
+                <li>Conducted regular testing</li>
+                <li>Gathered user feedback for improvements</li>
+              </ul>
+            </div>
           </div>
         </motion.div>
       </motion.main>
@@ -586,14 +615,14 @@ export default function Page() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="pt-10 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
+        className="pt-10 px-6 xl:pt-20 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
       >
         <motion.div
           variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-white border-gray-100 shadow-lg rounded-lg p-4 z-20"
+          className="bg-white border-gray-100 shadow-lg rounded-lg p-4 md:p-6 lg:p-10 z-20"
         >
           <div className=" relative">
             <motion.h2
@@ -605,7 +634,7 @@ export default function Page() {
               Results and Impact
             </motion.h2>
 
-            <div>
+            <div className="md:flex md:items-center md:justify-between md:gap-6 2xl:gap-10 2xl:mt-14">
               <div className=" mt-4">
                 <h4 className="text-lg font-semibold text-black 2xl:text-3xl">
                   400%
@@ -647,7 +676,7 @@ export default function Page() {
             initial={{ opacity: 0, rotate: -10 }}
             animate={{ opacity: 1, rotate: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="absolute -top-20 right-0 sm:top-48 md:top-60 sm:w-80 md:top-2 -z-20"
+            className="absolute 2xl:w-96 2xl:right-0 -top-20 md:-top-36 right-0 sm:top-48 md:top-60 sm:w-80 md:top-2 -z-20"
           >
             <Image src={circle} alt="circle" />
           </motion.div>
@@ -658,88 +687,98 @@ export default function Page() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
-        className="pt-16 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
+        className="pt-16 md:pt-10 xl:pt-20 px-6 lg:px-24 xl:px-32 2xl:px-60 relative text-black"
       >
         <motion.div
           variants={staggerContainer}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className=""
+          className="md:flex md:items-start md:justify-between"
         >
-          <div>
-            <h3 className="text-lg font-semibold">Key Learnings</h3>
+          <div className="md:w-4/12">
+            <h3 className="text-lg 2xl:text-xl font-semibold">Key Learnings</h3>
           </div>
-          <div>
-            <p className="text-md font-semibold mt-4">Simplicity is Key</p>
-            <ul className="mt-2 list-disc list-inside text-sm">
-              <li>
-                Users prefer straightforward solutions over feature-rich
-                complexity
-              </li>
-              <li>Clear visual hierarchy helps reduce learning curve</li>
-              <li>Step-by-step guidance is essential for new users</li>
-            </ul>
-          </div>
+          <div className="md:w-8/12">
+            <div>
+              <p className="text-md 2xl:text-xl font-semibold mt-4 md:mt-0">
+                Simplicity is Key
+              </p>
+              <ul className="mt-2 list-disc list-inside text-sm 2xl:text-lg">
+                <li>
+                  Users prefer straightforward solutions over feature-rich
+                  complexity
+                </li>
+                <li>Clear visual hierarchy helps reduce learning curve</li>
+                <li>Step-by-step guidance is essential for new users</li>
+              </ul>
+            </div>
 
-          <div>
-            <p className="text-md font-semibold mt-4">Local Context Matters</p>
-            <ul className="mt-2 list-disc list-inside text-sm">
-              <li>Understanding tier 2-3 city business dynamics is crucial</li>
-              <li>
-                Language and cultural considerations affect design decisions
-              </li>
-              <li>Trust-building elements are essential</li>
-            </ul>
-          </div>
+            <div className="xl:mt-8">
+              <p className="text-md 2xl:text-xl font-semibold mt-4">
+                Local Context Matters
+              </p>
+              <ul className="mt-2 list-disc list-inside text-sm 2xl:text-lg">
+                <li>
+                  Understanding tier 2-3 city business dynamics is crucial
+                </li>
+                <li>
+                  Language and cultural considerations affect design decisions
+                </li>
+                <li>Trust-building elements are essential</li>
+              </ul>
+            </div>
 
-          <div>
-            <p className="text-md font-semibold mt-4">Business Impact Focus</p>
-            <ul className="mt-2 list-disc list-inside text-sm">
-              <li>Users need to see clear ROI</li>
-              <li>Quick wins encourage continued platform usage</li>
-              <li>Success stories motivate new users</li>
-            </ul>
-          </div>
+            <div className="xl:mt-8">
+              <p className="text-md 2xl:text-xl font-semibold mt-4">
+                Business Impact Focus
+              </p>
+              <ul className="mt-2 list-disc list-inside text-sm 2xl:text-lg">
+                <li>Users need to see clear ROI</li>
+                <li>Quick wins encourage continued platform usage</li>
+                <li>Success stories motivate new users</li>
+              </ul>
+            </div>
 
-          <div>
-            <p className="text-md font-semibold mt-4">
-              Qualitative Improvements
-            </p>
-            <ul className="mt-2 list-disc list-inside text-sm">
-              <li>Increased user confidence in managing online stores</li>
-              <li>Higher satisfaction with store aesthetics</li>
-              <li>Better understanding of digital business operations</li>
-              <li>Improved customer engagement</li>
-            </ul>
-          </div>
+            <div className="xl:mt-8">
+              <p className="text-md 2xl:text-xl font-semibold mt-4">
+                Qualitative Improvements
+              </p>
+              <ul className="mt-2 list-disc list-inside text-sm 2xl:text-lg">
+                <li>Increased user confidence in managing online stores</li>
+                <li>Higher satisfaction with store aesthetics</li>
+                <li>Better understanding of digital business operations</li>
+                <li>Improved customer engagement</li>
+              </ul>
+            </div>
 
-          <div>
-            <p className="text-md font-semibold mt-4">
-              Expansion Opportunities
-            </p>
-            <ul className="mt-2 list-disc list-inside text-sm">
-              <li>Multi-language support for broader reach</li>
-              <li>Advanced marketing tools for growing businesses</li>
-              <li>Integration with local payment systems</li>
-            </ul>
-          </div>
+            <div className="xl:mt-8">
+              <p className="text-md 2xl:text-xl font-semibold mt-4">
+                Expansion Opportunities
+              </p>
+              <ul className="mt-2 list-disc list-inside text-sm 2xl:text-lg">
+                <li>Multi-language support for broader reach</li>
+                <li>Advanced marketing tools for growing businesses</li>
+                <li>Integration with local payment systems</li>
+              </ul>
+            </div>
 
-          <div>
-            <p className="text-sm mt-4">
-              The Shoopy platform demonstrates how thoughtful UX design can
-              bridge the digital divide for small businesses in India. By
-              focusing on user needs and maintaining simplicity while providing
-              powerful features, we've created a platform that genuinely helps
-              SMBs grow their business online.
-              <br></br>
-              <br></br>
-              The success metrics show that when design thinking is applied to
-              real-world problems with a deep understanding of user context, it
-              can create significant business impact. The project continues to
-              evolve, with new features and improvements being added based on
-              ongoing user feedback and changing market needs.
-            </p>
+            <div className="xl:mt-8">
+              <p className="text-sm mt-4 2xl:text-lg">
+                The Shoopy platform demonstrates how thoughtful UX design can
+                bridge the digital divide for small businesses in India. By
+                focusing on user needs and maintaining simplicity while
+                providing powerful features, we've created a platform that
+                genuinely helps SMBs grow their business online.
+                <br></br>
+                <br></br>
+                The success metrics show that when design thinking is applied to
+                real-world problems with a deep understanding of user context,
+                it can create significant business impact. The project continues
+                to evolve, with new features and improvements being added based
+                on ongoing user feedback and changing market needs.
+              </p>
+            </div>
           </div>
         </motion.div>
       </motion.main>
@@ -798,7 +837,7 @@ export default function Page() {
                   </h3>
                   <p className="text-sm text-gray-500">{item.description}</p>
                 </div>
-                <ArrowRightIcon className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                {/* <ArrowRightIcon className="w-5 h-5 text-gray-400 flex-shrink-0" /> */}
               </div>
             </motion.div>
           ))}

@@ -1,23 +1,30 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
+import Link from "next/link";
+import Image from "next/legacy/image";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 import logo from "../../../public/aj-logo.png";
 import insta from "../../../public/insta.png";
 import yt from "../../../public/youtube.png";
 import x from "../../../public/x.png";
 
 const navigation = [
-  { name: "Home", href: "#" },
-  { name: "My Story", href: "#" },
-  { name: "Resume", href: "#" },
-  { name: "Connect With Me", href: "#" },
+  { name: "Home", href: "/" },
+  { name: "My Story", href: "/story" },
+  {
+    name: "Resume",
+    href: "https://drive.google.com/file/d/1em02kNdsk7lAdnBqgQCoeipZDWObVxiM/view?usp=sharing",
+    isExternal: true,
+  },
+  { name: "Connect With Me", href: "/contact" },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <div className="bg-white">
@@ -27,10 +34,10 @@ export default function Header() {
           className="flex items-center justify-between p-6 lg:px-24 xl:px-32 2xl:px-60 shadow"
         >
           <div className="flex lg:flex-1">
-            <a href="" className="-m-1.5 p-1.5">
+            <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Aman Jakhar</span>
               <Image src={logo} alt="logo" width={46} height={46} />
-            </a>
+            </Link>
           </div>
           <div className="flex lg:hidden">
             <button
@@ -43,20 +50,44 @@ export default function Header() {
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-sm/6 font-medium text-gray-900"
-              >
-                {item.name}
-              </a>
-            ))}
+            {navigation.map((item) =>
+              item.isExternal ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm/6 font-medium text-gray-900 hover:text-violet-900 transition-colors"
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`text-sm/6 font-medium hover:text-violet-900 transition-colors ${
+                    pathname === item.href
+                      ? "text-violet-900 underline underline-offset-8"
+                      : "text-gray-900"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-6">
-            <Image src={yt} alt="yt" width={20} height={20} />
-            <Image src={insta} alt="insta" width={20} height={20} />
-            <Image src={x} alt="x" width={20} height={20} />
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-6 m-0">
+            <Link href="https://www.youtube.com/@uxuiaman" target="_blank">
+              <Image src={yt} alt="yt" width={20} height={20} />
+            </Link>
+
+            <Link href="https://www.instagram.com/uxuiaman/" target="_blank">
+              <Image src={insta} alt="insta" width={20} height={20} />
+            </Link>
+
+            <Link href="https://x.com/_amanjakhar" target="_blank">
+              <Image src={x} alt="x" width={20} height={20} />
+            </Link>
           </div>
         </nav>
 
@@ -93,15 +124,31 @@ export default function Header() {
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.4 }}
                   >
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
-                      >
-                        {item.name}
-                      </a>
-                    ))}
+                    {navigation.map((item) =>
+                      item.isExternal ? (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-medium text-gray-900 hover:bg-gray-50"
+                        >
+                          {item.name}
+                        </a>
+                      ) : (
+                        <a
+                          key={item.name}
+                          href={item.href}
+                          className={`-mx-3 block rounded-lg px-3 py-2 text-base/7 font-medium hover:bg-gray-50 ${
+                            pathname === item.href
+                              ? "text-violet-900 underline underline-offset-8"
+                              : "text-gray-900"
+                          }`}
+                        >
+                          {item.name}
+                        </a>
+                      )
+                    )}
                   </motion.div>
                   <motion.div
                     className="flex flex-1 gap-6 py-6"
@@ -109,9 +156,23 @@ export default function Header() {
                     animate={{ opacity: 1, rotate: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                   >
-                    <Image src={yt} alt="yt" width={20} height={20} />
-                    <Image src={insta} alt="insta" width={20} height={20} />
-                    <Image src={x} alt="x" width={20} height={20} />
+                    <Link
+                      href="https://www.youtube.com/@uxuiaman"
+                      target="_blank"
+                    >
+                      <Image src={yt} alt="yt" width={20} height={20} />
+                    </Link>
+
+                    <Link
+                      href="https://www.instagram.com/uxuiaman/"
+                      target="_blank"
+                    >
+                      <Image src={insta} alt="insta" width={20} height={20} />
+                    </Link>
+
+                    <Link href="https://x.com/_amanjakhar" target="_blank">
+                      <Image src={x} alt="x" width={20} height={20} />
+                    </Link>
                   </motion.div>
                 </div>
               </div>
