@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/legacy/image";
+import Head from "next/head";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import circle from "../../public/hero-circle.png";
@@ -209,6 +210,59 @@ export default function Home() {
 
   return (
     <div className="">
+      <Head>
+        {/* HTML Meta Tags */}
+        <title>Aman Jakhar : UX Designer & Developer</title>
+        <meta
+          name="description"
+          content="Aman Jakhar : Hello there, I'm a designer & Developer who cares about making beautiful things that help people."
+        />
+
+        {/* Google / Search Engine Tags */}
+        <meta itemProp="name" content="Aman Jakhar : UX Designer & Developer" />
+        <meta
+          itemProp="description"
+          content="Aman Jakhar : Hello there, I'm a designer & Developer who cares about making beautiful things that help people."
+        />
+        <meta
+          itemProp="image"
+          content="https://aman-jakhar.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Faman.c62c6f3a.png&w=1200&q=75"
+        />
+
+        {/* <!-- Facebook Meta Tags --> */}
+        <meta property="og:url" content="https://aman-jakhar.vercel.app/" />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:title"
+          content="Aman Jakhar : UX Designer & Developer"
+        />
+        <meta
+          property="og:description"
+          content="Aman Jakhar : Hello there, I'm a designer & Developer who cares about making beautiful things that help people."
+        />
+        <meta
+          property="og:image"
+          content="https://aman-jakhar.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Faman.c62c6f3a.png&w=1200&q=75"
+        />
+
+        {/* <!-- Twitter Meta Tags --> */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Aman Jakhar : UX Designer & Developer"
+        />
+        <meta
+          name="twitter:description"
+          content="Aman Jakhar : Hello there, I'm a designer & Developer who cares about making beautiful things that help people."
+        />
+        <meta
+          name="twitter:image"
+          content="https://aman-jakhar.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Faman.c62c6f3a.png&w=1200&q=75"
+        />
+
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <Header />
       {/* Hero Section */}
       <motion.main
