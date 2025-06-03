@@ -77,11 +77,11 @@ export default function Header() {
             )}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-6 m-0">
-            <Link href="https://www.youtube.com/@uxuiaman" target="_blank">
+            <Link href="https://www.youtube.com/@jakhar-aman" target="_blank">
               <Image src={yt} alt="yt" width={20} height={20} />
             </Link>
 
-            <Link href="https://www.instagram.com/uxuiaman/" target="_blank">
+            <Link href="https://www.instagram.com/liftaman/" target="_blank">
               <Image src={insta} alt="insta" width={20} height={20} />
             </Link>
 

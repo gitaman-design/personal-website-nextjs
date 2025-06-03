@@ -160,11 +160,11 @@ export default function Page() {
               Socials
             </motion.p>
             <div className="lg:flex lg:flex-1 lg:justify-start lg:gap-10 mt-8">
-              <Link href="https://www.youtube.com/@uxuiaman" target="_blank">
+              <Link href="https://www.youtube.com/@jakhar-aman" target="_blank">
                 <Image src={yt} alt="yt" width={20} height={20} />
               </Link>
 
-              <Link href="https://www.instagram.com/uxuiaman/" target="_blank">
+              <Link href="https://www.instagram.com/liftaman/" target="_blank">
                 <Image src={insta} alt="insta" width={20} height={20} />
               </Link>
 

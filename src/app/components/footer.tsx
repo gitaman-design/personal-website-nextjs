@@ -81,7 +81,7 @@ export default function Footer() {
             </Link>
           </div>
           <div className="mt-8 lg:mt-0">
-            <Link href="https://www.instagram.com/uxuiaman/" target="_blank">
+            <Link href="https://www.instagram.com/liftaman/" target="_blank">
               <p className="text-gray-500 pt-2 hover:text-black">Instagram</p>
             </Link>
 
@@ -91,7 +91,7 @@ export default function Footer() {
             >
               <p className="text-gray-500 pt-2 hover:text-black ">Linkedin</p>
             </Link>
-            <Link href="https://www.youtube.com/@uxuiaman" target="_blank">
+            <Link href="https://www.youtube.com/@jakhar-aman" target="_blank">
               <p className="text-gray-500 pt-2 hover:text-black ">Youtube</p>
             </Link>
             <Link href="https://x.com/_amanjakhar" target="_blank">
@@ -100,7 +100,7 @@ export default function Footer() {
           </div>
           <div className="mt-8 lg:mt-0">
             <p className="pt-2 text-black font-bold">
-              2024 Aman Jakhar. All Rights Reserved
+              2025 Aman Jakhar. All Rights Reserved
             </p>
             <p className="text-gray-500 hover:text-black ">
               Made With ❤️ and Chai

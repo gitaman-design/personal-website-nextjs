@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/legacy/image";
 import Head from "next/head";
 import Link from "next/link";
@@ -68,6 +68,25 @@ const stackItemVariants = {
 export default function Home() {
   const [selectedTab, setSelectedTab] = useState("anyone");
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const fetchYouTubeVideos = async () => {
+      const API_KEY = "AIzaSyAYXamnGhVObGaMVFCLZTF7a6HCkjB-QJk";
+      const CHANNEL_ID = "UCZ86JJlw5oyNdHdXIRWW_sA";
+      const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet&type=video&order=date&maxResults=6`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        setVideos(data.items || []);
+      } catch (error) {
+        console.error("Error fetching YouTube videos:", error);
+      }
+    };
+
+    fetchYouTubeVideos();
+  }, []);
 
   const tabs = [
     {
@@ -877,6 +896,50 @@ export default function Home() {
       </motion.div>
 
       {/* my store ends here  */}
+
+      {/* Sharing my experiences here */}
+
+      {/* Existing content here */}
+
+      {/* YouTube Videos Section */}
+      {/* <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="mt-10 mx-6 lg:mx-24 xl:mx-32 2xl:mx-60"
+      >
+        <h2 className="text-black text-xl font-semibold xl:text-3xl">
+          Latest YouTube Videos
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          {videos.map((video) => (
+            <div key={video.id.videoId} className="relative">
+              <Link
+                href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+                target="_blank"
+              >
+                <Image
+                  src={video.snippet.thumbnails.high.url}
+                  alt={video.snippet.title}
+                  width={640}
+                  height={360}
+                  className="rounded-lg"
+                />
+                <h3 className="text-black text-lg font-semibold mt-2">
+                  {video.snippet.title}
+                </h3>
+                <p className="text-gray-500 text-sm">
+                  {new Date(video.snippet.publishedAt).toLocaleDateString()}
+                </p>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </motion.div> */}
+
+      {/* Existing content here */}
+
+      {/* Sharing my experiences end here */}
 
       {/* my stack starts here  */}
       <motion.div
